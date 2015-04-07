@@ -16,6 +16,7 @@
 <div class="wrapper">
 
     <header class="header">
+
         <br><br>
         <div><h2><strong>Новостной сайт</strong></h2></div>
         <nav>

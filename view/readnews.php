@@ -1,26 +1,34 @@
 <?php session_start(); session_unset(); ?><!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8"/>
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <title></title>
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
-    <link href="/css/rs.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <script src="/js/bootstrap.min.js"></script>
+<!--    <link rel="stylesheet" href="/css/style.css">-->
+    <title>Главная</title>
 </head>
+
 
 <body>
 
 <div class="wrapper">
 
     <header class="header">
-        <br><br>
-        <div><h2><strong>Новостной сайт</strong></h2></div>
-        <nav>
-            <a href="addnews.php">Добавить новость</a>
-        </nav>
+        <div class="page-header">
+            <h1><strong>Новостной сайт</strong> <small>и не только</small></h1>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <ul class="nav nav-pills">
+                    <li role="presentation" class="active"><a href="#">Home</a></li>
+                    <li role="presentation"><a href="#">Profile</a></li>
+                    <li role="presentation"><a href="#">Messages</a></li>
+                </ul>
+            </div>
+        </div>
 
     </header>
     <!-- .header-->
@@ -29,10 +37,21 @@
 
     $onenews = dbReadOneNews($_GET['id'])[0]; ?>
 
+
+
     <div class="content">
-        <div><?php echo $onenews['author']; ?></div>
-        <div><?php echo $onenews['subject']; ?></div>
-        <div><?php echo $onenews['bodynews']; ?></div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                        <?php echo $onenews['author']; ?>
+                        <?php echo $onenews['subject']; ?></h3>
+            </div>
+            <div class="panel-body">
+                <?php echo $onenews['bodynews']; ?>
+            </div>
+        </div>
+
 
     </div>
     <!-- .content -->
