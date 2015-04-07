@@ -29,11 +29,18 @@
 
     <main class="content">
         <div class="fform">
-            <form action="addnews.php" method="post">
-                <div><input type="text" size="160" placeholder="Тема новости"></div>
-                <div><textarea cols="100" rows="10" placeholder="Введите новость...."></textarea></div>
-                <input type="submit" value="Разместить">
+            <form action="/model/handler.php" method="post">
+                <fieldset>
+                    <div><input type="text" size="50" name="author" placeholder="Автор новости"></div>
+                    <br>
 
+                    <div><input type="text" size="124" name="subject" placeholder="Тема новости"></div>
+                    <br>
+
+                    <div><textarea cols="95" rows="22" name="bodynews" placeholder="Введите новость...."></textarea></div>
+                    <br>
+                    <input type="submit" value="Разместить">
+                </fieldset>
             </form>
         </div>
 

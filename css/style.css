@@ -30,7 +30,6 @@ body {
 }
 
 
-
 /* Middle
 -----------------------------------------------------------------------------*/
 .content {
@@ -38,7 +37,14 @@ body {
 }
 
 .fform {
-    width: 1000px;
+    width: 780px;
+    height: 450px;
+    border: solid 2px grey;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px;
+    background-color: #CCCCCC;
 }
 
 

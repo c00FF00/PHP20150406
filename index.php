@@ -27,8 +27,13 @@
     <!-- .header-->
 
     <main class="content">
-        <h3><strong>Новость от .</strong></h3>
-        <p>Какая то новость</p>
+        <h3><strong>Новости</strong></h3>
+        <a href="news.php"><p>Какая то новость 1</p></a>
+        <a href="news.php"><p>Какая то новость 2</p></a>
+        <a href="news.php"><p>Какая то новость 3</p></a>
+        <a href="news.php"><p>Какая то новость 4</p></a>
+        <a href="news.php"><p>Какая то новость 5</p></a>
+        <a href="news.php"><p>Какая то новость 6</p></a>
 
     </main>
     <!-- .content -->
