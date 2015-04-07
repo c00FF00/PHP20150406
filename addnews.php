@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php session_start(); ?><!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -26,7 +26,7 @@
 
     </header>
     <!-- .header-->
-
+    <h1><?php echo $_SESSION['msg'] ?></h1>
     <main class="content">
         <div class="fform">
             <form action="/model/handler.php" method="post">

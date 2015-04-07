@@ -12,7 +12,8 @@ function dbQuery($query)
     $resquery = mysql_query($query);
     $ret = [];
     while (false !== ($row = mysql_fetch_array($resquery))) {
-        $ret = $row;
+        $ret[] = $row;
+
     }
     return $ret;
 }
