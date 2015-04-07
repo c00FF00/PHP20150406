@@ -25,5 +25,21 @@ function dbInsertNews($author, $subject, $textnews)
     mysql_query($query);
 }
 
+function dbReadOneNews($id) {
+    $query = "SELECT author, subject, bodynews FROM  `" . 'main' . "` WHERE id =  '" . $id . "'";
+    $result = dbQuery($query);
+    return $result;
+}
+
+function dbReadAllSubjects() {
+    $query = "SELECT id, subject FROM  `" . 'main' . "` ORDER BY DATE DESC LIMIT 0 , 10";
+    $result = dbQuery($query);
+    return $result;
+}
+
+
+
+
+
 
 ?>

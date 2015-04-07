@@ -1,6 +1,4 @@
-<?php session_start();
-session_unset(); ?>
-<!DOCTYPE html>
+<?php session_start(); session_unset(); ?><!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -15,19 +13,40 @@ session_unset(); ?>
 
 <body>
 
+<div class="wrapper">
+
+    <header class="header">
+        <br><br>
+        <div><h2><strong>Новостной сайт</strong></h2></div>
+        <nav>
+            <a href="addnews.php">Добавить новость</a>
+        </nav>
+
+    </header>
+    <!-- .header-->
+    <?php
+    include __DIR__ . '/../lib/db.php';
+
+    $onenews = dbReadOneNews($_GET['id'])[0]; ?>
+
+    <div class="content">
+        <div><?php echo $onenews['author']; ?></div>
+        <div><?php echo $onenews['subject']; ?></div>
+        <div><?php echo $onenews['bodynews']; ?></div>
+
+    </div>
+    <!-- .content -->
+
+</div>
+<!-- .wrapper -->
+
+<footer class="footer">
+    <strong>Footer:</strong></footer>
+<!-- .footer -->
 
 
 
-<?php
-include __DIR__ . '/../lib/db.php';
-
-//var_dump(dbQuery("SELECT id,subject FROM  `" . 'main' . "` ORDER BY DATE DESC"));
-$onenews = dbReadOneNews($_GET['id'])[0]; ?>
-
-<?php echo $onenews['author']; ?><br>
-<?php echo $onenews['subject'];?><br>
-<?php echo $onenews['bodynews'];?><br>
 
 
-
-</body></html>
+</body>
+</html>

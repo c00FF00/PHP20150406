@@ -19,7 +19,6 @@
         <br><br>
         <div><h2><strong>Новостной сайт</strong></h2></div>
         <nav>
-            <a href="read.php">Читать новости</a>&nbsp;  &nbsp;
             <a href="addnews.php">Добавить новость</a>
         </nav>
 
@@ -27,13 +26,7 @@
     <!-- .header-->
 
     <main class="content">
-        <h3><strong>Новости</strong></h3>
-        <a href="news.php"><p>Какая то новость 1</p></a>
-        <a href="news.php"><p>Какая то новость 2</p></a>
-        <a href="news.php"><p>Какая то новость 3</p></a>
-        <a href="news.php"><p>Какая то новость 4</p></a>
-        <a href="news.php"><p>Какая то новость 5</p></a>
-        <a href="news.php"><p>Какая то новость 6</p></a>
+
 
     </main>
     <!-- .content -->

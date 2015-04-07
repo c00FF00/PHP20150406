@@ -17,22 +17,20 @@
 
     <header class="header">
         <br><br>
-
         <div><h2><strong>Новостной сайт</strong></h2></div>
         <nav>
-            <a href="read.php">Читать новости</a>&nbsp; &nbsp;
-            <a href="admin.php">Добавить новость</a>
+            <a href="/view/newssubject.php">Читать новости</a>&nbsp; &nbsp;
+            <a href="/model/handler.php">Добавить новость</a>
         </nav>
-
     </header>
     <!-- .header-->
-    <h1><?php echo $_SESSION['msg'] ?></h1>
+
     <main class="content">
         <div class="fform">
             <form action="/model/handler.php" method="post">
                 <fieldset>
-                    <div><input type="text" size="50" name="author" placeholder="Автор новости"></div>
-                    <br>
+                    <div class="msg"><input type="text" size="50" name="author" placeholder="Автор новости"></div>
+                    <div class="msg"><?php echo $_SESSION['msg'] ?></div><br>
 
                     <div><input type="text" size="124" name="subject" placeholder="Тема новости"></div>
                     <br>
@@ -43,11 +41,8 @@
                 </fieldset>
             </form>
         </div>
-
-
     </main>
     <!-- .content -->
-
 </div>
 <!-- .wrapper -->
 
