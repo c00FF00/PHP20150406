@@ -31,7 +31,7 @@
 
     </header>
 
-    <div class="form-news">
+<!--    <div class="form-news">-->
         <form action="/model/handler.php" method="post">
             <div class="form-group">
                 <input type="text" class="form-control" name="author" placeholder="Автор новости">
@@ -40,11 +40,11 @@
                 <input type="text" class="form-control" name="subject" placeholder="Тема новости">
             </div>
             <div class="form-group">
-                <textarea class="form-control" rows="20" name="bodynews" placeholder="Введите новость...."></textarea>
+                <textarea class="form-control" rows="19" name="bodynews" placeholder="Введите новость...."></textarea>
            </div>
             <button type="submit" class="btn btn-default">Разместить</button><span>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $_SESSION['msg'] ?></span>
         </form>
-    </div>
+<!--    </div>-->
 
 
 </div>

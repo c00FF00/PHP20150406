@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
     <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/custom.css">
     <title>Главная</title>
 </head>
 
