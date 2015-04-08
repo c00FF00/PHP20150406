@@ -1,4 +1,4 @@
-<?php session_start(); ?><!DOCTYPE html>
+<?php session_start(); session_unset(); ?><!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
@@ -24,7 +24,7 @@
                 <ul class="nav nav-pills">
                     <li role="presentation"><a href="/index.php">Главная</a></li>
                     <li role="presentation" class="active"><a href="#">Новости</a></li>
-                                        <li role="presentation"><a href="#">Messages</a></li>
+                    <!--                    <li role="presentation"><a href="#">Messages</a></li>-->
                 </ul>
             </div>
         </div>
@@ -32,23 +32,15 @@
     </header>
 
     <main class="content">
-        <div class="fform">
-            <form action="/model/handler.php" method="post">
-                <fieldset>
-                    <div class="msg"><input type="text" size="50" name="author" placeholder="Автор новости"></div>
-                    <div class="msg"><?php echo $_SESSION['msg'] ?></div><br>
+        <h3><strong>Новости</strong></h3>
 
-                    <div><input type="text" size="124" name="subject" placeholder="Тема новости"></div>
-                    <br>
+        <?php foreach ($result as $subj) {?>
+            <p><a href="/view/readnews.php?id=<?php echo $subj['id']; ?>" ><?php echo $subj['date']; ?>&nbsp;<span>|</span>&nbsp;<?php echo $subj['subject']; ?></a></p>
+        <?php } ?>
 
-                    <div><textarea cols="95" rows="22" name="bodynews" placeholder="Введите новость...."></textarea></div>
-                    <br>
-                    <input type="submit" value="Разместить">
-                </fieldset>
-            </form>
-        </div>
     </main>
     <!-- .content -->
+
 </div>
 <!-- .wrapper -->
 
@@ -58,3 +50,6 @@
 
 </body>
 </html>
+
+
+

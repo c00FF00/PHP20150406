@@ -1,5 +1,4 @@
-<?php session_start();
-session_unset(); ?>
+<?php session_start(); session_unset(); ?>
 
 <?php
 
@@ -25,10 +24,5 @@ if ('' !== $_POST['author']) {
     $_SESSION['msg'] = 'Новость не добавлена. Укажите автора.';
     header('Location: /addnews.php');
 }
-
-
-
-
-
 
 ?>

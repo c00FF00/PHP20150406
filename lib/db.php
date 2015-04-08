@@ -26,13 +26,13 @@ function dbInsertNews($author, $subject, $textnews)
 }
 
 function dbReadOneNews($id) {
-    $query = "SELECT author, subject, bodynews FROM  `" . 'main' . "` WHERE id =  '" . $id . "'";
+    $query = "SELECT date, author, subject, bodynews FROM  `" . 'main' . "` WHERE id =  '" . $id . "'";
     $result = dbQuery($query);
     return $result;
 }
 
 function dbReadAllSubjects() {
-    $query = "SELECT id, subject FROM  `" . 'main' . "` ORDER BY DATE DESC LIMIT 0 , 10";
+    $query = "SELECT id, date, subject FROM  `" . 'main' . "` ORDER BY DATE DESC LIMIT 0 , 10";
     $result = dbQuery($query);
     return $result;
 }

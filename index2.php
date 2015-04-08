@@ -1,4 +1,4 @@
-<?php session_start(); ?><!DOCTYPE html>
+<?php session_start(); session_unset(); ?><!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
@@ -24,37 +24,35 @@
                 <ul class="nav nav-pills">
                     <li role="presentation"><a href="/index.php">Главная</a></li>
                     <li role="presentation" class="active"><a href="#">Новости</a></li>
-                                        <li role="presentation"><a href="#">Messages</a></li>
+                    <li role="presentation"><a href="/addnews.php">Добавить новость</a></li>
                 </ul>
             </div>
         </div>
 
     </header>
+    <?php
+    include __DIR__ . '/model/dbread.php';
 
-    <main class="content">
-        <div class="fform">
-            <form action="/model/handler.php" method="post">
-                <fieldset>
-                    <div class="msg"><input type="text" size="50" name="author" placeholder="Автор новости"></div>
-                    <div class="msg"><?php echo $_SESSION['msg'] ?></div><br>
+    $result = dbReadAllSubjects();
 
-                    <div><input type="text" size="124" name="subject" placeholder="Тема новости"></div>
-                    <br>
+    include __DIR__ . '/view/newssubject2.php'
 
-                    <div><textarea cols="95" rows="22" name="bodynews" placeholder="Введите новость...."></textarea></div>
-                    <br>
-                    <input type="submit" value="Разместить">
-                </fieldset>
-            </form>
-        </div>
-    </main>
-    <!-- .content -->
-</div>
-<!-- .wrapper -->
 
-<footer class="footer">
-    <strong>Footer:</strong></footer>
-<!-- .footer -->
+    ?>
 
-</body>
+
+
+
+
+
+
+
+
+
+
+
+   </div>
+
+
+ </body>
 </html>
