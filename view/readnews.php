@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
 <div class="wrapper">
     <header class="header">
         <div class="page-header">
@@ -26,9 +27,7 @@
                 </ul>
             </div>
         </div>
-
     </header>
-
 
     <div class="content">
         <div class="panel panel-default">
