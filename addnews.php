@@ -24,8 +24,7 @@
             <div class="panel-body">
                 <ul class="nav nav-pills">
                     <li role="presentation"><a href="/index.php">Главная</a></li>
-                    <li role="presentation" class="active"><a href="#">Новости</a></li>
-                    <li role="presentation"><a href="#">Messages</a></li>
+                    <li role="presentation" class="active"><a>Добавляем новости</a></li>
                 </ul>
             </div>
         </div>
@@ -49,11 +48,6 @@
 
 
 </div>
-<!-- .wrapper -->
-
-<footer class="footer">
-    <strong>Footer:</strong></footer>
-<!-- .footer -->
 
 </body>
 </html>

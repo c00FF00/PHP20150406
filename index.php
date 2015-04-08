@@ -23,8 +23,7 @@
             <div class="panel-body">
                 <ul class="nav nav-pills">
                     <li role="presentation" class="active"><a href="#">Главная</a></li>
-                    <li role="presentation"><a href="#">Новости</a></li>
-                    <li role="presentation"><a href="/addnews2.php">Добавить новость</a></li>
+                    <li role="presentation"><a href="/addnews.php">Добавить новость</a></li>
                 </ul>
             </div>
         </div>
