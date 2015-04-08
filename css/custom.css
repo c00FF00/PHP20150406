@@ -1,0 +1,19 @@
+.wrapper {
+    width: 100%;
+    min-width: 1000px;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+}
+
+
+.form-news {
+    width: 1024px;
+    height: 600px;
+    border: solid 2px grey;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px;
+    /*background-color: #CCCCCC;*/
+}

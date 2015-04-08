@@ -31,10 +31,7 @@
 
     </header>
     <!-- .header-->
-    <?php
-    include __DIR__ . '/../lib/db.php';
 
-    $onenews = dbReadOneNews($_GET['id'])[0]; ?>
 
     <div class="content">
         <div class="panel panel-default">

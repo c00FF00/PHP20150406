@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
     <script src="/js/bootstrap.min.js"></script>
-    <!--    <link rel="stylesheet" href="/css/style.css">-->
+    <link rel="stylesheet" href="/css/custom.css">
     <title>Главная</title>
 </head>
 
 <body>
+
 <div class="wrapper">
     <header class="header">
         <div class="page-header">
@@ -24,31 +25,29 @@
                 <ul class="nav nav-pills">
                     <li role="presentation"><a href="/index.php">Главная</a></li>
                     <li role="presentation" class="active"><a href="#">Новости</a></li>
-                                        <li role="presentation"><a href="#">Messages</a></li>
+                    <li role="presentation"><a href="#">Messages</a></li>
                 </ul>
             </div>
         </div>
 
     </header>
 
-    <main class="content">
-        <div class="fform">
-            <form action="/model/handler.php" method="post">
-                <fieldset>
-                    <div class="msg"><input type="text" size="50" name="author" placeholder="Автор новости"></div>
-                    <div class="msg"><?php echo $_SESSION['msg'] ?></div><br>
+    <div class="form-news">
+        <form action="/model/handler.php" method="post">
+            <div class="form-group">
+                <input type="text" class="form-control" name="author" placeholder="Автор новости">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="subject" placeholder="Тема новости">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" rows="20" name="bodynews" placeholder="Введите новость...."></textarea>
+           </div>
+            <button type="submit" class="btn btn-default">Разместить</button><span>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $_SESSION['msg'] ?></span>
+        </form>
+    </div>
 
-                    <div><input type="text" size="124" name="subject" placeholder="Тема новости"></div>
-                    <br>
 
-                    <div><textarea cols="95" rows="22" name="bodynews" placeholder="Введите новость...."></textarea></div>
-                    <br>
-                    <input type="submit" value="Разместить">
-                </fieldset>
-            </form>
-        </div>
-    </main>
-    <!-- .content -->
 </div>
 <!-- .wrapper -->
 

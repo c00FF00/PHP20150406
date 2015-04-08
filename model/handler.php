@@ -4,6 +4,14 @@
 
 include __DIR__ . '/../lib/db.php';
 
+
+function dbInsertNews($author, $subject, $textnews)
+{
+    $query = "INSERT INTO  `main` ( `author` , `subject`,  `bodynews` ) VALUES ('" . $author . "', ' " . $subject . "'  ,'" . $textnews . "')";
+    dbConn();
+    mysql_query($query);
+}
+
 //Вставить одну статью в БД
 
 if ('' !== $_POST['author']) {

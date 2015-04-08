@@ -22,31 +22,24 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <ul class="nav nav-pills">
-                    <li role="presentation"><a href="/index.php">Главная</a></li>
-                    <li role="presentation" class="active"><a href="#">Новости</a></li>
-                    <li role="presentation"><a href="/addnews.php">Добавить новость</a></li>
+                    <li role="presentation" class="active"><a href="#">Главная</a></li>
+                    <li role="presentation"><a href="#">Новости</a></li>
+                    <li role="presentation"><a href="/addnews2.php">Добавить новость</a></li>
                 </ul>
             </div>
         </div>
 
     </header>
-<body>
+    <?php
 
+    include __DIR__ . '/model/dbread.php';
 
-    <!-- .header-->
+    $result = dbReadAllSubjects();
 
-    <main class="content">
+    include __DIR__ . '/view/newssubject.php'
 
-
-    </main>
-    <!-- .content -->
+    ?>
 
 </div>
-<!-- .wrapper -->
-
-<footer class="footer">
-    <strong>Footer:</strong></footer>
-<!-- .footer -->
-
 </body>
 </html>

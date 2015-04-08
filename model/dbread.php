@@ -8,4 +8,11 @@ function dbReadAllSubjects() {
     return $result;
 }
 
+function dbReadOneNews($id) {
+    $query = "SELECT date, author, subject, bodynews FROM  `" . 'main' . "` WHERE id =  '" . $id . "'";
+    $result = dbQuery($query);
+    return $result;
+}
+
+
 ?>
