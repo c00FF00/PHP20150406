@@ -15,23 +15,19 @@ function dbInsertNews($author, $subject, $textnews)
 //Вставить одну статью в БД
 function dbAddNews($author, $subject, $bodynews)
 {
-    if ('' !== $_POST[$author]) {
-        if ('' !== $_POST[$subject]) {
-            if ('' !== $_POST[$bodynews]) {
+    if ('' !== $author) {
+        if ('' !== $subject) {
+            if ('' !== $bodynews) {
                 dbInsertNews($_POST['author'], $_POST['subject'], $_POST['bodynews']);
-                $_SESSION['msg'] = 'Новость добавлена';
-//                header('Location: /newsadd.php');
+                return  'Новость добавлена';
             } else {
-                $_SESSION['msg'] = 'Новость не добавлена. Новость отсутствует';
-//                header('Location: /newsadd.php');
+                return 'Новость не добавлена. Новость отсутствует';
             }
         } else {
-            $_SESSION['msg'] = 'Новость не добавлена. Нет описания новости';
-//            header('Location: /newsadd.php');
+            return 'Новость не добавлена. Нет описания новости';
         }
     } else {
-        $_SESSION['msg'] = 'Новость не добавлена. Укажите автора.';
-//        header('Location: /newsadd.php');
+        return 'Новость не добавлена. Укажите автора.';
     }
 }
 ?>
