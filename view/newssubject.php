@@ -25,7 +25,7 @@ session_unset(); ?>
             <div class="panel-body">
                 <ul class="nav nav-pills">
                     <li role="presentation" class="active"><a>Главная</a></li>
-                    <li role="presentation"><a href="/addnews.php">Добавить новость</a></li>
+                    <li role="presentation"><a href="/view/addnews.php">Добавить новость</a></li>
                 </ul>
             </div>
         </div>

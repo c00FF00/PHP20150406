@@ -13,24 +13,25 @@ function dbInsertNews($author, $subject, $textnews)
 }
 
 //Вставить одну статью в БД
-
-if ('' !== $_POST['author']) {
-    if ('' !== $_POST['subject']) {
-        if ('' !== $_POST['bodynews']) {
-            dbInsertNews($_POST['author'], $_POST['subject'], $_POST['bodynews']);
-            $_SESSION['msg'] = 'Новость добавлена';
-            header('Location: /addnews.php');
+function dbAddNews($author, $subject, $bodynews)
+{
+    if ('' !== $_POST[$author]) {
+        if ('' !== $_POST[$subject]) {
+            if ('' !== $_POST[$bodynews]) {
+                dbInsertNews($_POST['author'], $_POST['subject'], $_POST['bodynews']);
+                $_SESSION['msg'] = 'Новость добавлена';
+//                header('Location: /newsadd.php');
+            } else {
+                $_SESSION['msg'] = 'Новость не добавлена. Новость отсутствует';
+//                header('Location: /newsadd.php');
+            }
         } else {
-            $_SESSION['msg'] = 'Новость не добавлена. Новость отсутствует';
-            header('Location: /addnews.php');
+            $_SESSION['msg'] = 'Новость не добавлена. Нет описания новости';
+//            header('Location: /newsadd.php');
         }
     } else {
-        $_SESSION['msg'] = 'Новость не добавлена. Нет описания новости';
-        header('Location: /addnews.php');
+        $_SESSION['msg'] = 'Новость не добавлена. Укажите автора.';
+//        header('Location: /newsadd.php');
     }
-} else {
-    $_SESSION['msg'] = 'Новость не добавлена. Укажите автора.';
-    header('Location: /addnews.php');
 }
-
 ?>

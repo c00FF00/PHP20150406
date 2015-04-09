@@ -32,7 +32,7 @@
     </header>
 
 <!--    <div class="form-news">-->
-        <form action="/model/handler.php" method="post">
+        <form action="/newsadd.php" method="post">
             <div class="form-group">
                 <input type="text" class="form-control" name="author" placeholder="Автор новости">
             </div>
