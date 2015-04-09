@@ -14,5 +14,4 @@ function dbReadOneNews($id) {
     return $result;
 }
 
-
 ?>

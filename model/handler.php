@@ -4,7 +4,6 @@
 
 include __DIR__ . '/../lib/db.php';
 
-
 function dbInsertNews($author, $subject, $textnews)
 {
     $query = "INSERT INTO  `main` ( `author` , `subject`,  `bodynews` ) VALUES ('" . $author . "', ' " . $subject . "'  ,'" . $textnews . "')";

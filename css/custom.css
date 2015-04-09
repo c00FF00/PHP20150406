@@ -8,7 +8,6 @@
     margin-left: auto;
 }
 
-
 .form-news {
     width: 1024px;
     height: 600px;
@@ -17,22 +16,18 @@
     margin-right: auto;
     margin-left: auto;
     padding: 20px;
-    /*background-color: #CCCCCC;*/
 }
 
 .table-subj td {
     text-align: left;
     width: 30em;
-
 }
 
 .table-subj th {
     text-align: left;
     padding-left: 10px;
     padding-bottom: 20px;
-
 }
-
 
 .table-subj td.subj {
     text-align: left;
