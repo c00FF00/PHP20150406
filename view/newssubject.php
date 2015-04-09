@@ -29,7 +29,9 @@ session_unset(); ?>
                 </ul>
             </div>
         </div>
+
     </header>
+
 
     <div class="panel panel-default">
         <div class="panel-body">
@@ -37,14 +39,17 @@ session_unset(); ?>
                 <th>Дата</th>
                 <th>Автор</th>
                 <th>Тема новости</th>
+
                 <?php foreach ($result as $subj) { ?>
                     <tr>
                         <td><?php echo $subj['date']; ?></td>
                         <td><?php echo $subj['author']; ?></td>
-                        <td class="subj">
-                            <a href="/index.php?task=1&id=<?php echo $subj['id']; ?>"><?php echo $subj['subject']; ?></a>
+                        <td class="subj"><a
+                                href="/onenews.php?id=<?php echo $subj['id']; ?>"><?php echo $subj['subject']; ?></a>
                         </td>
                     </tr>
+
+
                 <?php } ?></table>
         </div>
     </div>

@@ -1,14 +1,11 @@
-<?php
-session_start();
-session_unset();
-?>
+<?php session_start(); session_unset(); ?>
+    <?php
 
-<?php
-include __DIR__ . '/model/dbread.php';
+    include __DIR__ . '/model/dbread.php';
 
-$result = dbReadAllSubjects();
+    $result = dbReadAllSubjects();
 
-include __DIR__ . '/view/newssubject.php'
+    include __DIR__ . '/view/newssubject.php'
 
-?>
+    ?>
 
