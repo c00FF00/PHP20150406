@@ -15,19 +15,25 @@ function dbInsertNews($author, $subject, $textnews)
 //Вставить одну статью в БД
 function dbAddNews($author, $subject, $bodynews)
 {
+    $msg = [
+        'Новость добавлена',
+        'Новость не добавлена. Новость отсутствует',
+        'Новость не добавлена. Нет описания новости',
+        'Новость не добавлена. Укажите автора.'
+    ];
     if ('' !== $author) {
         if ('' !== $subject) {
             if ('' !== $bodynews) {
                 dbInsertNews($_POST['author'], $_POST['subject'], $_POST['bodynews']);
-                return  'Новость добавлена';
+                return $msg[0] ;
             } else {
-                return 'Новость не добавлена. Новость отсутствует';
+                return $msg[1];
             }
         } else {
-            return 'Новость не добавлена. Нет описания новости';
+            return $msg[2];
         }
     } else {
-        return 'Новость не добавлена. Укажите автора.';
+        return $msg[3];
     }
 }
 ?>
