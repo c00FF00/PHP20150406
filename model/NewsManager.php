@@ -28,6 +28,12 @@ class NewsManager {
         mysql_query($query);
     }
 
+    public function dbUpdateOneNews($id,$author, $subject, $bodynews) {
+        $query = "UPDATE news.main SET author = '" . $author . "' , subject = '" . $subject . "', bodynews = '" . $bodynews . "' WHERE main.id = '" . $id . "'" ;
+        mysql_query($query);
+    }
+
+
     public function dbAddNews($author, $subject, $bodynews)
     {
         $query = "INSERT INTO  `main` ( `author` , `subject`,  `bodynews` ) VALUES ('" . $author . "', ' " . $subject . "'  ,'" . $bodynews . "')";

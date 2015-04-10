@@ -44,7 +44,7 @@
             </div>
             <ul class="nav nav-pills">
                 <li role="presentation"><a href="/deletenews.php?id=<?php echo $onenews['id']; ?>">Удалить</a></li>
-                <li role="presentation"><a href="#">Редактировать</a></li>
+                <li role="presentation"><a href="/newsedit.php?id=<?php echo $onenews['id']; ?>">Редактировать</a></li>
             </ul>
         </div>
     </div>
