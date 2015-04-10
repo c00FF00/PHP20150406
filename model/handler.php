@@ -11,6 +11,8 @@ function dbInsertNews($author, $subject, $textnews)
     mysql_query($query);
 }
 
+
+
 //Вставить одну статью в БД
 function dbAddNews($author, $subject, $bodynews)
 {
@@ -35,4 +37,7 @@ function dbAddNews($author, $subject, $bodynews)
         return $msg[3];
     }
 }
+
+
+
 ?>

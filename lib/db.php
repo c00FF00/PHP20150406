@@ -18,5 +18,17 @@ function dbQuery($query)
     return $ret;
 }
 
+function dbAnySelectQuery($query)
+{
+    $resquery = mysql_query($query);
+    $ret = [];
+    while (false !== ($row = mysql_fetch_array($resquery))) {
+        $ret[] = $row;
+
+    }
+    return $ret;
+}
+
+
 
 ?>
