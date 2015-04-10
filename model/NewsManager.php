@@ -28,8 +28,29 @@ class NewsManager {
         mysql_query($query);
     }
 
-    public function dbUpdateOneNews($id,$author, $subject, $bodynews) {
+    public function dbUpdateOneNews($id, $author, $subject, $bodynews) {
         $query = "UPDATE news.main SET author = '" . $author . "' , subject = '" . $subject . "', bodynews = '" . $bodynews . "' WHERE main.id = '" . $id . "'" ;
+        $msg = [
+            'Новость обновлена',
+            'Ну а новость, новость-то где?',
+            'Описание бы ввести',
+            'Забыли Автора'
+        ];
+        if ('' !== $author) {
+            if ('' !== $subject) {
+                if ('' !== $bodynews) {
+                    mysql_query($query);
+                    return $msg[0] ;
+                } else {
+                    return $msg[1];
+                }
+            } else {
+                return $msg[2];
+            }
+        } else {
+            return $msg[3];
+        }
+
         mysql_query($query);
     }
 

@@ -24,6 +24,7 @@
             <div class="panel-body">
                 <ul class="nav nav-pills">
                     <li role="presentation"><a href="/index.php">Главная</a></li>
+                    <li role="presentation" class="active"><a>Редактируем новость</a></li>
 
                 </ul>
             </div>
@@ -32,21 +33,17 @@
     </header>
 
 
-        <form action="/newsedit.php" method="post">
+        <form action="/newsupdate.php" method="post">
             <div class="form-group">
-<!--                <input type="text" class="form-control" name="author" placeholder="--><?php //echo $editnews['author']; ?><!--">-->
-                <input type="text" class="form-control" name="author" >
+               <input type="text" class="form-control" name="author" placeholder="<?php echo $onenews['author'];?>">
             </div>
             <div class="form-group">
-<!--                <input type="text" class="form-control" name="subject" placeholder="--><?php //echo $editnews['subject']; ?><!--">-->
-                <input type="text" class="form-control" name="subject" >
+               <input type="text" class="form-control" name="subject" placeholder="<?php echo $onenews['subject'];?>">
             </div>
             <div class="form-group">
-<!--                <textarea class="form-control" rows="19" name="bodynews" >--><?php //echo $editnews['bodynews']; ?><!--</textarea>-->
-                <textarea class="form-control" rows="19" name="bodynews" ></textarea>
+               <textarea class="form-control" rows="19" name="bodynews"><?php echo $onenews['bodynews']; ?></textarea>
            </div>
-
-            <button type="submit" class="btn btn-default">Сохранить</button>
+            <button type="submit" class="btn btn-default" name="id" value="<?php echo $onenews['id']; ?>">Сохранить</button>
 
         </form>
 

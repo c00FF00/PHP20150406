@@ -3,11 +3,7 @@
 session_start();
 session_unset();
 
-//include __DIR__ . '/model/dbread.php';
-
 include __DIR__ . '/model/NewsManager.php';
-
-//$result = dbReadAllSubjects();
 
 $result =  $ddb -> dbReadAllSubjects();
 
