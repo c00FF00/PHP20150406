@@ -35,15 +35,15 @@
 
         <form action="/newsupdate.php" method="post">
             <div class="form-group">
-               <input type="text" class="form-control" name="author" placeholder="<?php echo $onenews['author'];?>">
+               <input type="text" class="form-control" name="author" placeholder="<?php $art->viewAuthor();?>">
             </div>
             <div class="form-group">
-               <input type="text" class="form-control" name="subject" placeholder="<?php echo $onenews['subject'];?>">
+               <input type="text" class="form-control" name="subject" placeholder="<?php $art->viewSubject();?>">
             </div>
             <div class="form-group">
-               <textarea class="form-control" rows="19" name="bodynews"><?php echo $onenews['bodynews']; ?></textarea>
+               <textarea class="form-control" rows="19" name="bodynews"><?php $art->viewText(); ?></textarea>
            </div>
-            <button type="submit" class="btn btn-default" name="id" value="<?php echo $onenews['id']; ?>">Сохранить</button>
+            <button type="submit" class="btn btn-default" name="id" value="<?php $art->viewId(); ?>">Сохранить</button>
 
         </form>
 

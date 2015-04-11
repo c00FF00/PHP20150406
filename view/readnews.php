@@ -34,17 +34,17 @@
         <div class="panel panel-default">
             <h3 class="panel-title">
                 <ol class="breadcrumb">
-                    <li class="active"><?php echo $onenews['date']; ?></li>
-                    <li><?php echo $onenews['author']; ?></li>
-                    <li><?php echo $onenews['subject']; ?></li>
+                    <li class="active"><?php  $art->viewDate(); ?></li>
+                    <li><?php $art->viewAuthor(); ?></li>
+                    <li><?php $art->viewSubject(); ?></li>
                 </ol>
             </h3>
             <div class="panel-body">
-                <?php echo $onenews['bodynews']; ?>
+                <?php $art->viewText(); ?>
             </div>
             <ul class="nav nav-pills">
-                <li role="presentation"><a href="/deletenews.php?id=<?php echo $onenews['id']; ?>">Удалить</a></li>
-                <li role="presentation"><a href="/newsedit.php?id=<?php echo $onenews['id']; ?>">Редактировать</a></li>
+                <li role="presentation"><a href="/deletenews.php?id=<?php $art->viewId(); ?>">Удалить</a></li>
+                <li role="presentation"><a href="/newsedit.php?id=<?php $art->viewId(); ?>">Редактировать</a></li>
             </ul>
         </div>
     </div>
