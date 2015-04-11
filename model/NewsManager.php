@@ -10,6 +10,14 @@ class NewsManager {
     public $subject;
     public $bodynews;
     public $id;
+    public $table;
+
+    public function dbSelectAllRecords($table) {
+        $query = "SELECT * FROM  '" . $table . "'";
+        $result = dbAnySelectQuery($query);
+        return $result;
+    }
+
 
     public function dbReadAllSubjects() {
         $query = "SELECT id, date, author, subject FROM  `" . 'main' . "` ORDER BY DATE DESC LIMIT 0 , 10";
@@ -92,5 +100,6 @@ class NewsManager {
 }
 
 $ddb  =  new NewsManager('localhost', 'news', 'root', '123456');
+//$ddb -> dbSelectAllRecords('main');
 
 ?>
