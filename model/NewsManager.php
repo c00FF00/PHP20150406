@@ -89,10 +89,12 @@ class NewsManager {
     }
 
     public function __construct($dbHost, $dbName, $dbLogin, $dbPassw) {
+
         $this->dbHost = $dbHost;
         $this->dbName = $dbName;
         $this->dbLogin = $dbLogin;
         $this->dbPassw = $dbPassw;
+
         mysql_connect($dbHost, $dbLogin, $dbPassw);
         mysql_select_db($dbName);
     }
