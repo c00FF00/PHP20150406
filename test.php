@@ -37,46 +37,60 @@
 //
 
 
+//function dbUpdateRecord($id, $dbTable, $data)
+//{
+//    $setdata = [];
+//
+//    foreach ($data as $column => $value) {
+//        $column0 = " `" . $column . "`";
+//        $value0 = " '" . $value . "'";
+//
+//        $setdata[] = $column0 . "=" . $value0;
+//    }
+//
+//    $dataset = implode(',', $setdata);
+//
+//    $query = "UPDATE `" . $dbTable . "` SET " . $dataset . " WHERE main.id = '" . $id . "'";
+//
+//    echo $query;
+//
+//    $result = mysql_query($query);
+//    return $result;
+//
+//}
 
 
-function dbUpdateRecord($id, $dbTable, $data)
+
+//function dbDeleteById($dbTable, $id)
+//{
+//
+//    $del = "DELETE FROM news." . $dbTable . " WHERE " . $dbTable . ".id = " . $id;
+//    //mysql_connect($del);
+//    echo $del, "\n";
+//}
+
+
+function dbSelectAllFromTable($dbTable)
 {
-    $setdata = [];
-
-    foreach ($data as $column => $value) {
-        $column0 = " `" . $column . "`";
-        $value0 = " '" . $value . "'";
-
-        $setdata[] = $column0 . "=" . $value0;
-    }
-
-    $dataset = implode(',', $setdata);
-
-    $query = "UPDATE `" . $dbTable . "` SET " . $dataset . " WHERE main.id = '" . $id . "'";
-
+    $query = "SELECT * FROM `news`.`" . $dbTable . "`";
+//    $resquery = mysql_query($query);
+//    $ret = [];
+//    while (false !== ($row = mysql_fetch_array($resquery))) {
+//        $ret[] = $row;
+//
+//    }
+//    return $ret;
     echo $query;
-
-    $result = mysql_query($query);
-    return $result;
-
 }
 
-$data = [];
-
-$data = ['author' => 'OOOOO', 'bodynews' => 'BODY'];
 
 
-dbUpdateRecord('44', 'main.news', $data);
+//$data = [];
+//
+//$data = ['author' => 'OOOOO', 'bodynews' => 'BODY'];
+//
+//
+//dbUpdateRecord('44', 'main.news', $data);
 
-
-
-
-
-
-
-
-
-
-
-
+dbSelectAllFromTable('main');
 ?>

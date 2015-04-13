@@ -32,16 +32,42 @@ class MySqlCRUD
             return $result;
         }
     }
-// ->
 
-    function dbUpdateRecord($id, $dbTable, $data)
+
+    public function dbSelectAllFromTable($dbTable)
+    {
+        $query = $query = "SELECT * FROM `" . $dbTable . "`";
+        $resquery = mysql_query($query);
+        $ret = [];
+        while (false !== ($row = mysql_fetch_array($resquery))) {
+            $ret[] = $row;
+
+        }
+        return $ret;
+    }
+
+    public function dbSelectColumnFromTable($dbTable, $data) {
+
+        $columns = implode(", ",$data);
+
+        $query = $query = "SELECT" . $columns . "FROM `" . $dbTable . "`";
+        $resquery = mysql_query($query);
+        $ret = [];
+        while (false !== ($row = mysql_fetch_array($resquery))) {
+            $ret[] = $row;
+
+        }
+        return $ret;
+    }
+
+
+    public function dbUpdateRecord( $dbTable, $data, $id)
     {
         $setdata = [];
 
         foreach ($data as $column => $value) {
 
             $value0 = " '" . $value . "'";
-
             $setdata[] = " " . $column . " =" . $value0;
         }
 
@@ -49,22 +75,26 @@ class MySqlCRUD
 
         $query = "UPDATE news." . $dbTable . " SET " . $dataset . " WHERE " . $dbTable . ".id = '" . $id . "'";
 
-        echo $query;
-
         $result = mysql_query($query);
         return $result;
 
+    }
+
+    public function dbDeleteById($dbTable, $id)
+    {
+
+        $del = "DELETE FROM news." . $dbTable . " WHERE " . $dbTable . ".id = " . $id ;
+        $result = mysql_query($del);
+        return $result;
     }
 
 
 
 
 
-//    public function dbDeleteRecord ($column, $where)
-//    {
-//        $del =  'DELETE FROM ' . $column .  ' WHERE ' . $where;
-//        mysql_connect($del);
-//    }
+// ->
+
+
 
     public function __construct($dbHost, $dbName, $dbLogin, $dbPassw)
     {
@@ -74,7 +104,12 @@ class MySqlCRUD
 }
 
 $dda = new MySqlCRUD('localhost', 'news', 'root', '123456');
-$data = ['author' => 'QQQQQQQQQ', 'subject' => 'WWWWWWWWWWWWWWWWWWWWWWWW', 'bodynews' => 'EEEEEEEEEEEEEEEEEEEEEEEEEEEE'];
-$dda->dbUpdateRecord('282','main',$data);
+//$data = ['author' => 'QQQQQQQ1111QQ', 'subject' => 'WWWWWWWWWWWWWWWWWWWWWWWW', 'bodynews' => 'EEEEEEEEEEEEEEEEEEEEEEEEEEEE'];
+//echo $dda->dbUpdateRecord('main', $data, '282');
+
+echo $dda->dbSelectAllFromTable('main');
+
+
+
 
 ?>
