@@ -35,15 +35,15 @@
 
         <form action="/newsupdate.php" method="post">
             <div class="form-group">
-               <input type="text" class="form-control" name="author" placeholder="<?php $art->viewAuthor();?>">
+               <input type="text" class="form-control" name="author" placeholder="<?php echo $art->getAuthor();?>">
             </div>
             <div class="form-group">
-               <input type="text" class="form-control" name="subject" placeholder="<?php $art->viewSubject();?>">
+               <input type="text" class="form-control" name="subject" placeholder="<?php echo $art->getSubject();?>">
             </div>
             <div class="form-group">
-               <textarea class="form-control" rows="19" name="bodynews"><?php $art->viewText(); ?></textarea>
+               <textarea class="form-control" rows="19" name="bodynews"><?php echo $art->getText(); ?></textarea>
            </div>
-            <button type="submit" class="btn btn-default" name="id" value="<?php $art->viewId(); ?>">Сохранить</button>
+            <button type="submit" class="btn btn-default" name="id" value="<?php echo $art->getId(); ?>">Сохранить</button>
 
         </form>
 
