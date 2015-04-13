@@ -1,12 +1,5 @@
 <?php
 
-//include __DIR__ . '/model/dbread.php';
-
-//include __DIR__ . '/model/NewsManager.php';
-//$onenews = dbReadOneNews($_GET['id'])[0];
-
-include __DIR__ . '/lib/BaseArticle.php';
-include __DIR__ . '/lib/Article.php';
 include __DIR__ . '/model/OOPread.php';
 
 //$onenews = $db->dbReadOneNews($_GET['id']);

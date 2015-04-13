@@ -1,16 +1,7 @@
 <?php
 session_start();
 
-//include __DIR__ . '/model/NewsManager.php';
-
-
-include __DIR__ . '/lib/BaseArticle.php';
-include __DIR__ . '/lib/Article.php';
 include __DIR__ . '/model/OOPread.php';
-
-
-//$onenews = $ddb -> dbReadOneNews($_GET['id']);
-
 
 $data = ['id', 'date', 'author', 'subject', 'bodynews'];
 
