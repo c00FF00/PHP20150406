@@ -93,7 +93,6 @@ class MySqlCRUD
 
     public function dbQuery($sql)
     {
-
         $resquery = mysql_query($sql);
 
         if ($resquery) {
@@ -109,21 +108,11 @@ class MySqlCRUD
 
 // ->
 
-
     public function __construct($dbHost, $dbName, $dbLogin, $dbPassw)
     {
         mysql_connect($dbHost, $dbLogin, $dbPassw);
         mysql_select_db($dbName);
     }
 }
-
-$dda = new MySqlCRUD('localhost', 'news', 'root', '123456');
-//$data = ['author' => 'QQQQQQQ1111QQ', 'subject' => 'WWWWWWWWWWWWWWWWWWWWWWWW', 'bodynews' => 'EEEEEEEEEEEEEEEEEEEEEEEEEEEE'];
-//echo $dda->dbUpdateRecord('main', $data, '282');
-
-$data = ['id', 'date', 'author', 'subject'];
-
-$rr = $dda->dbSelectColumnFromTable('main', $data, 'ORDER BY DATE DESC LIMIT 0, 20');
-var_dump($rr);
 
 ?>
