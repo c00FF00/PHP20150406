@@ -2,8 +2,6 @@
 
 include __DIR__ . '/model/OOPread.php';
 
-//$onenews = $db->dbReadOneNews($_GET['id']);
-
 $data = ['id', 'date', 'author', 'subject', 'bodynews'];
 
 $onenew = $db->dbSelectColumnFromTable('main', $data, "WHERE id = " . $_GET['id']);
