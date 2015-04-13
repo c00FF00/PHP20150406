@@ -3,10 +3,6 @@
 class MySqlCRUD
 {
 
-//    public function dbSelectRecord($dbTable) {
-//
-//    }
-
 
 // <- Работает
     public function dbInsertRecord($dbTable, $data)
@@ -46,9 +42,10 @@ class MySqlCRUD
         return $ret;
     }
 
-    public function dbSelectColumnFromTable($dbTable, $data, $extsql = null) {
+    public function dbSelectColumnFromTable($dbTable, $data, $extsql = null)
+    {
 
-        $columns = implode(", ",$data);
+        $columns = implode(", ", $data);
 
         $query = $query = "SELECT " . $columns . " FROM `" . $dbTable . "` " . $extsql;
 
@@ -61,7 +58,7 @@ class MySqlCRUD
     }
 
 
-    public function dbUpdateRecord( $dbTable, $data, $id)
+    public function dbUpdateRecord($dbTable, $data, $id)
     {
         $setdata = [];
 
@@ -83,17 +80,34 @@ class MySqlCRUD
     public function dbDeleteById($dbTable, $id)
     {
 
-        $del = "DELETE FROM news." . $dbTable . " WHERE " . $dbTable . ".id = " . $id ;
+        $del = "DELETE FROM news." . $dbTable . " WHERE " . $dbTable . ".id = " . $id;
         $result = mysql_query($del);
         return $result;
     }
 
+    public function dbExec($sql)
+    {
+        $result = mysql_query($sql);
+        return $result;
+    }
 
+    public function dbQuery($sql)
+    {
 
+        $resquery = mysql_query($sql);
 
+        if ($resquery) {
+            $ret = [];
+            while (false !== ($row = mysql_fetch_array($resquery))) {
+                $ret[] = $row;
+            }
+            return $ret;
+        } else {
+            return $resquery;
+        }
+    }
 
 // ->
-
 
 
     public function __construct($dbHost, $dbName, $dbLogin, $dbPassw)
