@@ -47,7 +47,7 @@ class MySqlCRUD
 
         $dataset = implode(',', $setdata);
 
-        $query = "UPDATE " . $dbTable . " SET " . $dataset . " WHERE " . $dbTable . ".id = '" . $id . "'";
+        $query = "UPDATE news." . $dbTable . " SET " . $dataset . " WHERE " . $dbTable . ".id = '" . $id . "'";
 
         echo $query;
 
@@ -74,7 +74,7 @@ class MySqlCRUD
 }
 
 $dda = new MySqlCRUD('localhost', 'news', 'root', '123456');
-$data = ['author' => 'WER', 'subject' => 'Коротко', 'bodynews' => 'ЧТо то там'];
+$data = ['author' => 'QQQQQQQQQ', 'subject' => 'WWWWWWWWWWWWWWWWWWWWWWWW', 'bodynews' => 'EEEEEEEEEEEEEEEEEEEEEEEEEEEE'];
 $dda->dbUpdateRecord('282','main',$data);
 
 ?>
