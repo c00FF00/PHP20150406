@@ -47,7 +47,7 @@ class MySqlCRUD
 
         $dataset = implode(',', $setdata);
 
-        $query = "UPDATE news." . $dbTable . " SET " . $dataset . " WHERE " . $dbTable . ".id = '" . $id . "'";
+        $query = "UPDATE " . $dbTable . " SET " . $dataset . " WHERE " . $dbTable . ".id = '" . $id . "'";
 
         echo $query;
 
