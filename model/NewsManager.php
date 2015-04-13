@@ -102,6 +102,6 @@ class NewsManager {
 }
 
 $ddb  =  new NewsManager('localhost', 'news', 'root', '123456');
-//$ddb -> dbSelectAllRecords('main');
+//$ddb->dbSelectAllRecords('main');
 
 ?>
