@@ -46,16 +46,16 @@ class MySqlCRUD
         return $ret;
     }
 
-    public function dbSelectColumnFromTable($dbTable, $data) {
+    public function dbSelectColumnFromTable($dbTable, $data, $extsql = null) {
 
         $columns = implode(", ",$data);
 
-        $query = $query = "SELECT" . $columns . "FROM `" . $dbTable . "`";
+        $query = $query = "SELECT " . $columns . " FROM `" . $dbTable . "` " . $extsql;
+
         $resquery = mysql_query($query);
         $ret = [];
         while (false !== ($row = mysql_fetch_array($resquery))) {
             $ret[] = $row;
-
         }
         return $ret;
     }
@@ -107,9 +107,9 @@ $dda = new MySqlCRUD('localhost', 'news', 'root', '123456');
 //$data = ['author' => 'QQQQQQQ1111QQ', 'subject' => 'WWWWWWWWWWWWWWWWWWWWWWWW', 'bodynews' => 'EEEEEEEEEEEEEEEEEEEEEEEEEEEE'];
 //echo $dda->dbUpdateRecord('main', $data, '282');
 
-echo $dda->dbSelectAllFromTable('main');
+$data = ['id', 'date', 'author', 'subject'];
 
-
-
+$rr = $dda->dbSelectColumnFromTable('main', $data, 'ORDER BY DATE DESC LIMIT 0, 20');
+var_dump($rr);
 
 ?>

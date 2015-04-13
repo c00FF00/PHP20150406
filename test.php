@@ -70,20 +70,20 @@
 //}
 
 
-function dbSelectAllFromTable($dbTable)
-{
-    $query = "SELECT * FROM `news`.`" . $dbTable . "`";
-//    $resquery = mysql_query($query);
-//    $ret = [];
-//    while (false !== ($row = mysql_fetch_array($resquery))) {
-//        $ret[] = $row;
+//function dbSelectAllFromTable($dbTable)
+//{
+//    $query = "SELECT * FROM `news`.`" . $dbTable . "`";
+////    $resquery = mysql_query($query);
+////    $ret = [];
+////    while (false !== ($row = mysql_fetch_array($resquery))) {
+////        $ret[] = $row;
+////
+////    }
+////    return $ret;
+//    echo $query;
+//}
 //
-//    }
-//    return $ret;
-    echo $query;
-}
-
-
+//
 
 //$data = [];
 //
@@ -92,5 +92,28 @@ function dbSelectAllFromTable($dbTable)
 //
 //dbUpdateRecord('44', 'main.news', $data);
 
-dbSelectAllFromTable('main');
+
+
+function dbSelectColumnFromTable($dbTable, $data) {
+
+    $columns = implode(", ",$data);
+
+    $query = $query = "SELECT " . $columns . " FROM `" . $dbTable . "`";
+
+    echo $query;
+
+
+//    $resquery = mysql_query($query);
+//    $ret = [];
+//    while (false !== ($row = mysql_fetch_array($resquery))) {
+//        $ret[] = $row;
+//    }
+//    return $ret;
+}
+
+
+$data = ['id', 'date', 'author'];
+dbSelectColumnFromTable('main',$data);
+
+
 ?>
