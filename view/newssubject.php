@@ -5,11 +5,11 @@ session_unset(); ?>
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
-    <script src="/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/A/css/normalize.css">
+    <link rel="stylesheet" href="/A/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/A/css/bootstrap-theme.min.css">
+    <script src="/A/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/A/css/custom.css">
     <title>Главная</title>
 </head>
 

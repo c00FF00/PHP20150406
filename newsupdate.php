@@ -1,7 +1,7 @@
 <?php
 session_start(); session_unset();
 
-include __DIR__ . '/model/OOPread.php';
+include __DIR__ . '/model/News.php';
 
 $update = [ 'author' => $_POST['author'], 'subject' => $_POST['subject'], 'bodynews' => $_POST['bodynews']];
 

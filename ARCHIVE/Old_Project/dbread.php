@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . '/../lib/db.php';
+include __DIR__ . '/../classes/db.php';
 
 function dbReadAllSubjects() {
     $query = "SELECT id, date, author, subject FROM  `" . 'main' . "` ORDER BY DATE DESC LIMIT 0 , 10";

@@ -2,7 +2,7 @@
 
 session_start(); session_unset();
 
-include __DIR__ . '/../lib/db.php';
+include __DIR__ . '/../classes/db.php';
 
 
 class NewsManager {

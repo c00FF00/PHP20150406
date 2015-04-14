@@ -1,6 +1,6 @@
 <?php
 
-class MySqlCRUD
+class Db
 {
 
 

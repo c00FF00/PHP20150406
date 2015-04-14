@@ -2,7 +2,7 @@
 
 <?php
 
-include __DIR__ . '/../lib/db.php';
+include __DIR__ . '/../classes/db.php';
 
 function dbInsertNews($author, $subject, $textnews)
 {

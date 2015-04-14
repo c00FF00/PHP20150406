@@ -3,7 +3,7 @@
 session_start();
 session_unset();
 
-include __DIR__ . '/model/OOPread.php';
+include __DIR__ . '/model/News.php';
 
 $data = ['id', 'date', 'author', 'subject'];
 
