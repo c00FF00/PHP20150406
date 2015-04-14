@@ -39,5 +39,3 @@ class Article extends BaseArticle
     }
 
 }
-
-?>

@@ -13,5 +13,3 @@ abstract class BaseArticle
     abstract protected function getTableName();
 
 }
-
-?>
