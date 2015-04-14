@@ -5,23 +5,24 @@ class Db
 
 
 // <- Работает
+    public function __construct($dbHost, $dbName, $dbLogin, $dbPassw)
+{
+mysql_connect($dbHost, $dbLogin, $dbPassw);
+mysql_select_db($dbName);
+}
+
     public function dbInsertRecord($dbTable, $data)
     {
         $columns = [];
         $values = [];
-
         foreach ($data as $column => $value) {
             $columns[] = " `" . $column . "`";
             $values[] = " '" . $value . "'";
         }
-
         $dbColumn = implode(',', $columns);
         $dbValues = implode(',', $values);
-
         $query = "INSERT INTO `" . $dbTable . "` ( " . $dbColumn . " ) VALUES ( " . $dbValues . " )";
-
         $result = mysql_query($query);
-
         if ($result) {
             return mysql_insert_id();
         } else {
@@ -44,11 +45,8 @@ class Db
 
     public function dbSelectColumnFromTable($dbTable, $data, $extsql = null)
     {
-
         $columns = implode(", ", $data);
-
         $query = $query = "SELECT " . $columns . " FROM `" . $dbTable . "` " . $extsql;
-
         $resquery = mysql_query($query);
         $ret = [];
         while (false !== ($row = mysql_fetch_array($resquery))) {
@@ -61,17 +59,12 @@ class Db
     public function dbUpdateRecord($dbTable, $data, $id)
     {
         $setdata = [];
-
         foreach ($data as $column => $value) {
-
             $value0 = " '" . $value . "'";
             $setdata[] = " " . $column . " =" . $value0;
         }
-
         $dataset = implode(',', $setdata);
-
         $query = "UPDATE news." . $dbTable . " SET " . $dataset . " WHERE " . $dbTable . ".id = '" . $id . "'";
-
         $result = mysql_query($query);
         return $result;
 
@@ -79,7 +72,6 @@ class Db
 
     public function dbDeleteById($dbTable, $id)
     {
-
         $del = "DELETE FROM news." . $dbTable . " WHERE " . $dbTable . ".id = " . $id;
         $result = mysql_query($del);
         return $result;
@@ -94,7 +86,6 @@ class Db
     public function dbQuery($sql)
     {
         $resquery = mysql_query($sql);
-
         if ($resquery) {
             $ret = [];
             while (false !== ($row = mysql_fetch_array($resquery))) {
@@ -108,11 +99,7 @@ class Db
 
 // ->
 
-    public function __construct($dbHost, $dbName, $dbLogin, $dbPassw)
-    {
-        mysql_connect($dbHost, $dbLogin, $dbPassw);
-        mysql_select_db($dbName);
-    }
+
 }
 
 ?>
