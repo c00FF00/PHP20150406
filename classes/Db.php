@@ -3,7 +3,7 @@
 class Db
 
 {
-    public function __construct($dbHost, $dbName, $dbLogin, $dbPassw)
+    public function __construct()
     {
         $cfg = include __DIR__ . '/../config/db.php';
         mysql_connect($cfg['host'], $cfg['user'], $cfg['passw']);
@@ -35,7 +35,7 @@ class Db
         return $this->dbSelect($query);
     }
 
-    public function dbSelectColumnFromTable($dbTable, $data, $extsql = null)
+    public function dbSelectByFolder($dbTable, $data, $extsql = null)
     {
         $columns = implode(", ", $data);
         $query = "SELECT " . $columns . " FROM `" . $dbTable . "` " . $extsql;
@@ -71,7 +71,7 @@ class Db
     public function dbSelect($sql)
     {
         $resquery = mysql_query($sql);
-        if ($resquery) {
+        if (false !== $resquery) {
             $ret = [];
             while (false !== ($row = mysql_fetch_array($resquery))) {
                 $ret[] = $row;

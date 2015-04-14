@@ -1,10 +1,10 @@
 <?php
 
-include __DIR__ . '/model/News.php';
+include __DIR__ . '/model/NewsOld.php';
 
 $data = ['id', 'date', 'author', 'subject', 'bodynews'];
 
-$onenew = $db->dbSelectColumnFromTable('main', $data, "WHERE id = " . $_GET['id']);
+$onenew = $db->dbSelectByFolder('main', $data, "WHERE id = " . $_GET['id']);
 
 $onenews = $onenew[0];
 

@@ -1,15 +1,19 @@
 <?php
 
-session_start();
-session_unset();
+//session_start();
+//session_unset();
+//
+//include __DIR__ . '/model/NewsOld.php';
+//
+//$data = ['id', 'date', 'author', 'subject'];
+//
+//$result = $db->dbSelectByFolder('main', $data, 'ORDER BY DATE DESC');
+//
+//include __DIR__ . '/view/newssubject.php';
+//
 
-include __DIR__ . '/model/News.php';
 
-$data = ['id', 'date', 'author', 'subject'];
+include __DIR__ . '/controllers/NewsController.php';
 
-$result = $db->dbSelectColumnFromTable('main', $data, 'ORDER BY DATE DESC');
-
-include __DIR__ . '/view/newssubject.php';
-
-?>
-
+$contoller = new NewsController();
+$contoller->AllNews();
