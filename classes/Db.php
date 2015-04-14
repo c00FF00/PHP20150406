@@ -1,15 +1,14 @@
 <?php
 
 class Db
+
 {
-
-
-// <- Работает
     public function __construct($dbHost, $dbName, $dbLogin, $dbPassw)
-{
-mysql_connect($dbHost, $dbLogin, $dbPassw);
-mysql_select_db($dbName);
-}
+    {
+        $cfg = include __DIR__ . '/../config/db.php';
+        mysql_connect($cfg['host'], $cfg['user'], $cfg['passw']);
+        mysql_select_db($cfg['dbname']);
+    }
 
     public function dbInsertRecord($dbTable, $data)
     {
@@ -22,37 +21,25 @@ mysql_select_db($dbName);
         $dbColumn = implode(',', $columns);
         $dbValues = implode(',', $values);
         $query = "INSERT INTO `" . $dbTable . "` ( " . $dbColumn . " ) VALUES ( " . $dbValues . " )";
-        $result = mysql_query($query);
-        if ($result) {
+        $result = $this->dbExec($query);
+        if (false !== $result) {
             return mysql_insert_id();
         } else {
             return $result;
         }
     }
 
-
     public function dbSelectAllFromTable($dbTable)
     {
-        $query = $query = "SELECT * FROM `" . $dbTable . "`";
-        $resquery = mysql_query($query);
-        $ret = [];
-        while (false !== ($row = mysql_fetch_array($resquery))) {
-            $ret[] = $row;
-
-        }
-        return $ret;
+        $query = "SELECT * FROM `" . $dbTable . "`";
+        return $this->dbSelect($query);
     }
 
     public function dbSelectColumnFromTable($dbTable, $data, $extsql = null)
     {
         $columns = implode(", ", $data);
-        $query = $query = "SELECT " . $columns . " FROM `" . $dbTable . "` " . $extsql;
-        $resquery = mysql_query($query);
-        $ret = [];
-        while (false !== ($row = mysql_fetch_array($resquery))) {
-            $ret[] = $row;
-        }
-        return $ret;
+        $query = "SELECT " . $columns . " FROM `" . $dbTable . "` " . $extsql;
+        return $this->dbSelect($query);
     }
 
 
@@ -65,16 +52,14 @@ mysql_select_db($dbName);
         }
         $dataset = implode(',', $setdata);
         $query = "UPDATE news." . $dbTable . " SET " . $dataset . " WHERE " . $dbTable . ".id = '" . $id . "'";
-        $result = mysql_query($query);
-        return $result;
+        return $this->dbExec($query);
 
     }
 
     public function dbDeleteById($dbTable, $id)
     {
         $del = "DELETE FROM news." . $dbTable . " WHERE " . $dbTable . ".id = " . $id;
-        $result = mysql_query($del);
-        return $result;
+        return $this->dbExec($del);
     }
 
     public function dbExec($sql)
@@ -83,7 +68,7 @@ mysql_select_db($dbName);
         return $result;
     }
 
-    public function dbQuery($sql)
+    public function dbSelect($sql)
     {
         $resquery = mysql_query($sql);
         if ($resquery) {
@@ -96,10 +81,5 @@ mysql_select_db($dbName);
             return $resquery;
         }
     }
-
-// ->
-
-
 }
 
-?>
