@@ -1,7 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: grig
- * Date: 14.04.15
- * Time: 19:18
- */
+
+require __DIR__ . '/../classes/News.php';
+
+class AdminController {
+
+    public function addNews() {
+        include __DIR__ . '/../view/addnews.php';
+    }
+}

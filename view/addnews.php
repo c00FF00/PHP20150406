@@ -42,7 +42,7 @@
             <div class="form-group">
                 <textarea class="form-control" rows="19" name="bodynews" placeholder="Введите новость...."></textarea>
            </div>
-            <button type="submit" class="btn btn-default">Разместить</button><span>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $_SESSION['msg'] ?></span>
+            <button type="submit" class="btn btn-default">Разместить</button><span>&nbsp;&nbsp;&nbsp;&nbsp;<?php //echo $_SESSION['msg']; ?></span>
         </form>
 <!--    </div>-->
 
