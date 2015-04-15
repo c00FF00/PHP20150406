@@ -11,4 +11,12 @@ abstract class AbstractController {
         require $this->getTemlatePath() . $template . '.php';
     }
 
+    public function renderForm($template) {
+        require $this->getTemlatePath() . $template . '.php';
+    }
+
+    protected function table() {
+        return 'main';
+    }
+
 }

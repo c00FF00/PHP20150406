@@ -26,8 +26,13 @@ class News
         //return $onenew;
     }
 
-    public function InsertNew($table, $items)
+    public function InsertNew($table, $data)
     {
-        $this->db->dbInsertRecord($table, $items);
+        $this->db->dbInsertRecord($table, $data);
+    }
+
+    public function DeleteNew($table, $id)
+    {
+        $this->db->dbDeleteById($table, $id);
     }
 }
