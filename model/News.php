@@ -2,26 +2,32 @@
 
 require __DIR__ . '/../classes/Db.php';
 
-class News {
+class News
+{
 
     protected $db;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->db = new Db();
     }
 
-    public function GetAllSubject() {
+    public function GetAllSubject()
+    {
         $items = ['id', 'date', 'author', 'subject'];
         return $this->db->dbSelectByFolder('main', $items, 'ORDER BY DATE DESC');
     }
 
-    public function GetOneNew($id) {
+    public function GetOneNew($id)
+    {
         $items = ['id', 'date', 'author', 'subject', 'bodynews'];
         $onenew = $this->db->dbSelectByFolder('main', $items, "WHERE id = " . $id);
         return $onenew[0];
+        //return $onenew;
     }
 
-    public function InsertNew($table, $items) {
+    public function InsertNew($table, $items)
+    {
         $this->db->dbInsertRecord($table, $items);
     }
 }

@@ -1,18 +1,20 @@
 <?php
 
 
-class View {
+class View
+{
 
-    public function data() {
-
-
-    }
-
-    public function display($where) {
+    public function data()
+    {
 
 
     }
 
+    public function display($where)
+    {
+
+
+    }
 
 
 }

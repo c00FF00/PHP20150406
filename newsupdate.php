@@ -1,9 +1,10 @@
 <?php
-session_start(); session_unset();
+session_start();
+session_unset();
 
 include __DIR__ . '/model/NewsOld.php';
 
-$update = [ 'author' => $_POST['author'], 'subject' => $_POST['subject'], 'bodynews' => $_POST['bodynews']];
+$update = ['author' => $_POST['author'], 'subject' => $_POST['subject'], 'bodynews' => $_POST['bodynews']];
 
 $db->dbUpdateRecord('main', $update, $_POST['id']);
 

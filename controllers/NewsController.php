@@ -1,18 +1,36 @@
 <?php
 
 require __DIR__ . '/../model/News.php';
+require __DIR__ . '/AbstractController.php';
 
+class NewsController extends AbstractController
 
-class NewsController {
+{
 
-    public function AllNews() {
+    public function actionAll()
+    {
         $model = new News();
         $result = $model->GetAllSubject();
-        include $this->getTemlatePath();
+        $this->render('newssubject', ['result' => $result]);
     }
 
-    protected function getTemlatePath() {
-        return __DIR__ . '/../view/newssubject.php';
+    public function actionOne($id)
+    {
+        $model = new News();
+        $result = $model->GetOneNew($id);
+        $this->render('readnews', [
+            'id' => $result['id'],
+            'date' => $result['date'],
+            'author' => $result['author'],
+            'subject' => $result['subject'],
+            'bodynews' => $result['bodynews']
+        ]);
     }
+
+    protected function getTemlatePath()
+    {
+        return __DIR__ . '/../view/news/';
+    }
+
 
 }

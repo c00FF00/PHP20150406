@@ -5,7 +5,7 @@ session_unset();
 
 include __DIR__ . '/model/NewsOld.php';
 
-$db->dbDeleteById('main', $_GET['id'] );
+$db->dbDeleteById('main', $_GET['id']);
 
 $data = ['id', 'date', 'author', 'subject'];
 

@@ -24,28 +24,28 @@
             <div class="panel-body">
                 <ul class="nav nav-pills">
                     <li role="presentation"><a href="/index.php">Главная</a></li>
-                    <li role="presentation" class="active"><a>Добавляем новости</a></li>
+                    <li role="presentation" class="active"><a>Редактируем новость</a></li>
+
                 </ul>
             </div>
         </div>
 
     </header>
 
-<!--    <div class="form-news">-->
-        <form action="/newsadd.php" method="post">
-            <div class="form-group">
-                <input type="text" class="form-control" name="author" placeholder="Автор новости">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="subject" placeholder="Тема новости">
-            </div>
-            <div class="form-group">
-                <textarea class="form-control" rows="19" name="bodynews" placeholder="Введите новость...."></textarea>
-           </div>
-            <button type="submit" class="btn btn-default">Разместить</button><span>&nbsp;&nbsp;&nbsp;&nbsp;<?php //echo $_SESSION['msg']; ?></span>
-        </form>
-<!--    </div>-->
 
+    <form action="/newsupdate.php" method="post">
+        <div class="form-group">
+            <input type="text" class="form-control" name="author" placeholder="<?php echo $art->getAuthor(); ?>">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="subject" placeholder="<?php echo $art->getSubject(); ?>">
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" rows="19" name="bodynews"><?php echo $art->getText(); ?></textarea>
+        </div>
+        <button type="submit" class="btn btn-default" name="id" value="<?php echo $art->getId(); ?>">Сохранить</button>
+
+    </form>
 
 </div>
 

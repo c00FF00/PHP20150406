@@ -25,7 +25,7 @@ session_unset(); ?>
             <div class="panel-body">
                 <ul class="nav nav-pills">
                     <li role="presentation" class="active"><a>Главная</a></li>
-                    <li role="presentation"><a href="/view/addnews.php">Добавить новость</a></li>
+                    <li role="presentation"><a href="/view/news/addnews.php">Добавить новость</a></li>
                 </ul>
             </div>
         </div>
@@ -45,7 +45,7 @@ session_unset(); ?>
                         <td><?php echo $subj['date']; ?></td>
                         <td><?php echo $subj['author']; ?></td>
                         <td class="subj"><a
-                                href="/onenews.php?id=<?php echo $subj['id']; ?>"><?php echo $subj['subject']; ?></a>
+                                href="/index.php?cntrl=news&act=one&id=<?php echo $subj['id']; ?>"><?php echo $subj['subject']; ?></a>
                         </td>
                     </tr>
 

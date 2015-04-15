@@ -73,7 +73,7 @@ class Db
         $resquery = mysql_query($sql);
         if (false !== $resquery) {
             $ret = [];
-            while (false !== ($row = mysql_fetch_array($resquery))) {
+            while (false !== ($row = mysql_fetch_assoc($resquery))) {
                 $ret[] = $row;
             }
             return $ret;

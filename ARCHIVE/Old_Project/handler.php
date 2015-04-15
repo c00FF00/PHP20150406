@@ -1,4 +1,5 @@
-<?php session_start(); session_unset(); ?>
+<?php session_start();
+session_unset(); ?>
 
 <?php
 
@@ -10,7 +11,6 @@ function dbInsertNews($author, $subject, $textnews)
     dbConn();
     mysql_query($query);
 }
-
 
 
 //Вставить одну статью в БД
@@ -26,7 +26,7 @@ function dbAddNews($author, $subject, $bodynews)
         if ('' !== $subject) {
             if ('' !== $bodynews) {
                 dbInsertNews($_POST['author'], $_POST['subject'], $_POST['bodynews']);
-                return $msg[0] ;
+                return $msg[0];
             } else {
                 return $msg[1];
             }
@@ -37,7 +37,6 @@ function dbAddNews($author, $subject, $bodynews)
         return $msg[3];
     }
 }
-
 
 
 ?>

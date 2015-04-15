@@ -1,43 +1,50 @@
 <?php
 
-session_start(); session_unset();
+session_start();
+session_unset();
 
 include __DIR__ . '/../classes/db.php';
 
 
-class NewsManager {
+class NewsManager
+{
     public $author;
     public $subject;
     public $bodynews;
     public $id;
     public $table;
 
-    public function dbSelectAllRecords($table) {
+    public function dbSelectAllRecords($table)
+    {
         $query = "SELECT * FROM  '" . $table . "'";
         $result = dbAnySelectQuery($query);
         return $result;
     }
 
 
-    public function dbReadAllSubjects() {
+    public function dbReadAllSubjects()
+    {
         $query = "SELECT id, date, author, subject FROM  `" . 'main' . "` ORDER BY DATE DESC LIMIT 0 , 10";
         $result = dbAnySelectQuery($query);
         return $result;
     }
 
-    public function dbReadOneNews($id) {
+    public function dbReadOneNews($id)
+    {
         $query = "SELECT id, date, author, subject, bodynews FROM  `" . 'main' . "` WHERE id =  '" . $id . "'";
         $result = dbAnySelectQuery($query);
         return $result[0];
     }
 
-    public function dbDeleteOneNews($id) {
-        $query = "DELETE FROM news.main WHERE main.id =  '" . $id . "'" ;
+    public function dbDeleteOneNews($id)
+    {
+        $query = "DELETE FROM news.main WHERE main.id =  '" . $id . "'";
         mysql_query($query);
     }
 
-    public function dbUpdateOneNews($id, $author, $subject, $bodynews) {
-        $query = "UPDATE news.main SET author = '" . $author . "' , subject = '" . $subject . "', bodynews = '" . $bodynews . "' WHERE main.id = '" . $id . "'" ;
+    public function dbUpdateOneNews($id, $author, $subject, $bodynews)
+    {
+        $query = "UPDATE news.main SET author = '" . $author . "' , subject = '" . $subject . "', bodynews = '" . $bodynews . "' WHERE main.id = '" . $id . "'";
         $msg = [
             'Новость обновлена',
             'Ну а новость, новость-то где?',
@@ -48,7 +55,7 @@ class NewsManager {
             if ('' !== $subject) {
                 if ('' !== $bodynews) {
                     mysql_query($query);
-                    return $msg[0] ;
+                    return $msg[0];
                 } else {
                     return $msg[1];
                 }
@@ -76,7 +83,7 @@ class NewsManager {
             if ('' !== $subject) {
                 if ('' !== $bodynews) {
                     mysql_query($query);
-                    return $msg[0] ;
+                    return $msg[0];
                 } else {
                     return $msg[1];
                 }
@@ -88,7 +95,8 @@ class NewsManager {
         }
     }
 
-    public function __construct($dbHost, $dbName, $dbLogin, $dbPassw) {
+    public function __construct($dbHost, $dbName, $dbLogin, $dbPassw)
+    {
 
         $this->dbHost = $dbHost;
         $this->dbName = $dbName;
@@ -101,7 +109,7 @@ class NewsManager {
 
 }
 
-$ddb  =  new NewsManager('localhost', 'news', 'root', '123456');
+$ddb = new NewsManager('localhost', 'news', 'root', '123456');
 //$ddb->dbSelectAllRecords('main');
 
 ?>

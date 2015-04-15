@@ -2,9 +2,11 @@
 
 require __DIR__ . '/../classes/News.php';
 
-class AdminController {
+class AdminController
+{
 
-    public function addNews() {
+    public function addNews()
+    {
         include __DIR__ . '/../view/addnews.php';
     }
 }

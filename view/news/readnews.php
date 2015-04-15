@@ -34,17 +34,17 @@
         <div class="panel panel-default">
             <h3 class="panel-title">
                 <ol class="breadcrumb">
-                    <li class="active"><?php  echo $art->getDate(); ?></li>
-                    <li><?php echo $art->getAuthor(); ?></li>
-                    <li><?php echo $art->getSubject(); ?></li>
+                    <li class="active"><?php echo $date; ?></li>
+                    <li><?php echo $author; ?></li>
+                    <li><?php echo $subject; ?></li>
                 </ol>
             </h3>
             <div class="panel-body">
-                <?php echo $art->getText(); ?>
+                <?php echo $bodynews; ?>
             </div>
             <ul class="nav nav-pills">
-                <li role="presentation"><a href="/deletenews.php?id=<?php echo $art->getId(); ?>">Удалить</a></li>
-                <li role="presentation"><a href="/newsedit.php?id=<?php echo $art->getId(); ?>">Редактировать</a></li>
+                <li role="presentation"><a href="/deletenews.php?id=<?php echo $id; ?>">Удалить</a></li>
+                <li role="presentation"><a href="/newsedit.php?id=<?php echo $id; ?>">Редактировать</a></li>
             </ul>
         </div>
     </div>

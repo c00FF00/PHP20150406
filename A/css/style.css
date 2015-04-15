@@ -1,29 +1,31 @@
 html {
-	height: 100%;
+    height: 100%;
 }
+
 article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
-	display: block;
+    display: block;
 }
+
 body {
-	font: 12px/18px Arial, sans-serif;
-	height: 100%;
+    font: 12px/18px Arial, sans-serif;
+    height: 100%;
 }
+
 .wrapper {
     margin-left: auto;
     margin-right: auto;
-	width: 100%;
-	min-width: 1000px;
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
+    width: 100%;
+    min-width: 1000px;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
 }
-
 
 /* Header
 -----------------------------------------------------------------------------*/
 .header {
-	height: 130px;
-	background: cadetblue;
+    height: 130px;
+    background: cadetblue;
 }
 
 .header h2 {
@@ -31,11 +33,10 @@ body {
     font-size: x-large;
 }
 
-
 /* Middle
 -----------------------------------------------------------------------------*/
 .content {
-	padding: 0 0 60px;
+    padding: 0 0 60px;
 }
 
 .fform {
@@ -55,12 +56,13 @@ body {
     color: red;
     font-size: 14px;
 }
+
 /* Footer
 -----------------------------------------------------------------------------*/
 .footer {
-	margin: -60px auto 0;
-	min-width: 1000px;
-	height: 60px;
-	background: #CCCCCC;
-	position: relative;
+    margin: -60px auto 0;
+    min-width: 1000px;
+    height: 60px;
+    background: #CCCCCC;
+    position: relative;
 }
