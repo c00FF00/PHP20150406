@@ -34,13 +34,13 @@
     <!--    <div class="form-news">-->
     <form action="/index.php?cntrl=admin&act=insert" method="post">
         <div class="form-group">
-            <input type="text" class="form-control" name="author" placeholder="Автор новости">
+            <input type="text" class="form-control" required name="author" placeholder="Автор новости">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" name="subject" placeholder="Тема новости">
+            <input type="text" class="form-control" required name="subject" placeholder="Тема новости">
         </div>
         <div class="form-group">
-            <textarea class="form-control" rows="19" name="bodynews" placeholder="Введите новость...."></textarea>
+            <textarea class="form-control" rows="19" required name="bodynews" placeholder="Введите новость...."></textarea>
         </div>
         <button type="submit" class="btn btn-default">Разместить</button>
         <span>&nbsp;&nbsp;&nbsp;&nbsp;<?php //echo $_SESSION['msg']; ?></span>

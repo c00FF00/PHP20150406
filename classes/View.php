@@ -4,7 +4,7 @@
 class View
 {
 
-    public function data()
+    public function data($data)
     {
 
 

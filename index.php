@@ -1,59 +1,37 @@
 <?php
 
-if (!empty($_GET['cntrl'])) {
-    $contr = ($_GET['cntrl']);
-} else {
-    $contr = 'news';
-}
+if (!empty($_GET['cntrl'])):
+    $controllerName = ($_GET['cntrl']);
+endif;
 
-if (!empty($_GET['act'])) {
+if (!empty($_GET['act'])):
     $act = $_GET['act'];
-} else {
-    $act = 'all';
-}
+endif;
 
-if (!empty($_GET['id'])) {
+if (!empty($_GET['id'])):
     $id = $_GET['id'];
+endif;
+
+$validController = ['news', 'admin'];
+$validAction = ['all', 'add', 'delete', 'insert', 'one'];
+$data = ['id' => $_POST['id'],  'author' => $_POST['author'], 'subject' => $_POST['subject'], 'bodynews' => $_POST['bodynews']];
+
+if (in_array($controllerName, $validController)) {
+    $controllerName = ucfirst($controllerName) . 'Controller';
 } else {
-    $id = null;
+    $controllerName = 'NewsController';
 }
 
-$contollerClass = ['news', 'admin'];
-$actionName = ['all', 'one', 'delete', 'insert'];
-$other = ['id'];
-
-if (in_array($contr, $contollerClass)) {
-    $contr = ucfirst($contr) . 'Controller';
+if (in_array($act, $validAction)) {
+    $actionName = 'action' . $act;
 } else {
-    $contr = 'NewsController';
+    $actionName = 'actionAll';
 }
 
-if (in_array($act, $actionName)) {
-    $action = 'action' . ucfirst($act) . "()";
-} else {
-    $action = 'actionAll()';
-}
-
-$datains = ['author' => $_POST['author'], 'subject' => $_POST['subject'], 'bodynews' => $_POST['bodynews']];
+include __DIR__ . '/controllers/' . $controllerName . ".php";
+$controller = new $controllerName;
+$controller->id = $id;
+$controller->data = $data;
+$controller->$actionName();
 
 
-include __DIR__ . '/controllers/' . $contr . ".php";
-
-$controller = new $contr;
-switch ($act) {
-    case 'insert' :
-        $controller->actionInsert($datains);
-        break;
-    case 'delete' :
-        $controller->actionDelete($id);
-        break;
-    case 'add' :
-        $controller->actionAdd();
-        break;
-    case 'one' :
-        $controller->actionOne($id);
-        break;
-    default:
-        $controller->actionAll();
-        break;
-}

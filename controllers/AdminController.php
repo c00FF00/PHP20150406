@@ -7,20 +7,24 @@ require __DIR__ . '/AbstractController.php';
 class AdminController extends AbstractController
 
 {
-    public function actionDelete($id) {
+
+    public function actionDelete()
+    {
         $model = new News();
-        $model->DeleteNew($this->table(), $id);
+        $model->DeleteNew($this->table(), $this->id);
         $result = $model->GetAllSubject();
         $this->render('newssubject', ['result' => $result]);
     }
 
-    public function actionAdd() {
+    public function actionAdd()
+    {
         $this->renderForm('addnews');
     }
 
-    public function actionInsert($data) {
-        $model= new News();
-        $model->InsertNew($this->table(),$data);
+    public function actionInsert()
+    {
+        $model = new News();
+        $model->InsertNew($this->table(), $this->data);
         $this->renderForm('addnews');
     }
 

@@ -4,7 +4,6 @@ require __DIR__ . '/../model/News.php';
 require __DIR__ . '/AbstractController.php';
 
 class NewsController extends AbstractController
-
 {
 
     public function actionAll()
@@ -14,10 +13,10 @@ class NewsController extends AbstractController
         $this->render('newssubject', ['result' => $result]);
     }
 
-    public function actionOne($id)
+    public function actionOne()
     {
         $model = new News();
-        $result = $model->GetOneNew($id);
+        $result = $model->GetOneNew($this->id);
         $this->render('readnews', [
             'id' => $result['id'],
             'date' => $result['date'],
