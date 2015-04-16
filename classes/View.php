@@ -16,5 +16,12 @@ class View
 
     }
 
+    protected function getTemlatePath()
+    {
+        return __DIR__ . '/../view/news/';
+    }
+
+
+
 
 }

@@ -16,7 +16,7 @@ class NewsController extends AbstractController
     public function actionOne()
     {
         $model = new News();
-        $result = $model->GetOneNew($this->id);
+        $result = $model->GetOneNew($_GET['id']);
         $this->render('readnews', [
             'id' => $result['id'],
             'date' => $result['date'],

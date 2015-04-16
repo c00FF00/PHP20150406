@@ -33,7 +33,7 @@
     </header>
 
 
-    <form action="/newsupdate.php" method="post">
+    <form action="/ARCHIVE/newsupdate.php" method="post">
         <div class="form-group">
             <input type="text" class="form-control" name="author" placeholder="<?php echo $art->getAuthor(); ?>">
         </div>

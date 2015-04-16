@@ -45,7 +45,7 @@
             <ul class="nav nav-pills">
                 <li role="presentation"><a href="/index.php?cntrl=admin&act=delete&id=<?php echo $id; ?>">Удалить</a>
                 </li>
-                <li role="presentation"><a href="/newsedit.php?id=<?php echo $id; ?>">Редактировать</a></li>
+                <li role="presentation"><a href="/ARCHIVE/newsedit.php?id=<?php echo $id; ?>">Редактировать</a></li>
             </ul>
         </div>
     </div>

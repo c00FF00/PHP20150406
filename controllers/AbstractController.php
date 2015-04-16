@@ -3,8 +3,6 @@
 
 abstract class AbstractController
 {
-    public $id;
-    public $data;
 
     abstract protected function getTemlatePath();
 

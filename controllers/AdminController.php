@@ -11,7 +11,7 @@ class AdminController extends AbstractController
     public function actionDelete()
     {
         $model = new News();
-        $model->DeleteNew($this->table(), $this->id);
+        $model->DeleteNew($this->table(), $_GET['id']);
         $result = $model->GetAllSubject();
         $this->render('newssubject', ['result' => $result]);
     }
@@ -23,8 +23,9 @@ class AdminController extends AbstractController
 
     public function actionInsert()
     {
+        $data = ['author' => $_POST['author'], 'subject' => $_POST['subject'], 'bodynews' => $_POST['bodynews']];
         $model = new News();
-        $model->InsertNew($this->table(), $this->data);
+        $model->InsertNew($this->table(), $data);
         $this->renderForm('addnews');
     }
 
