@@ -3,11 +3,14 @@
 class Db
 
 {
+    protected $dbname;
+
     public function __construct()
     {
         $cfg = include __DIR__ . '/../config/db.php';
+        $this->dbname = $cfg['dbname'];
         mysql_connect($cfg['host'], $cfg['user'], $cfg['passw']);
-        mysql_select_db($cfg['dbname']);
+        mysql_select_db($this->dbname);
     }
 
     public function dbInsertRecord($dbTable, $data)
@@ -51,14 +54,14 @@ class Db
             $setdata[] = " " . $column . " =" . $value0;
         }
         $dataset = implode(',', $setdata);
-        $query = "UPDATE news." . $dbTable . " SET " . $dataset . " WHERE " . $dbTable . ".id = '" . $id . "'";
+        $query = "UPDATE " . $this->dbname . "." . $dbTable . " SET " . $dataset . " WHERE " . $dbTable . ".id = '" . $id . "'";
         return $this->dbExec($query);
 
     }
 
     public function dbDeleteById($dbTable, $id)
     {
-        $del = "DELETE FROM news." . $dbTable . " WHERE " . $dbTable . ".id = " . $id;
+        $del = "DELETE FROM " . $this->dbname . "."  . $dbTable . " WHERE " . $dbTable . ".id = " . $id;
         return $this->dbExec($del);
     }
 
