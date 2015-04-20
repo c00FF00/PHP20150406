@@ -21,8 +21,7 @@ class News
     public function GetOneNew($id)
     {
         $items = ['id', 'date', 'author', 'subject', 'bodynews'];
-        $onenew = $this->db->dbSelectByFolder('main', $items, "WHERE id = " . $id);
-        return $onenew[0];
+        return $this->db->dbSelectByFolder('main', $items, "WHERE id = " . $id);
     }
 
     public function InsertNew($table, $data)

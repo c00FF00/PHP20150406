@@ -1,12 +1,16 @@
 <?php
 
-if (!empty($_GET['cntrl'])):
+if (!empty($_GET['cntrl'])) {
     $controllerName = ($_GET['cntrl']);
-endif;
+} else {
+    $controllerName = 'news';
+}
 
-if (!empty($_GET['act'])):
+if (!empty($_GET['act'])) {
     $act = $_GET['act'];
-endif;
+} else {
+    $act = 'all';
+}
 
 $validController = ['news', 'admin'];
 $validAction = ['all', 'add', 'delete', 'insert', 'one'];

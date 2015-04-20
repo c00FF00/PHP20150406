@@ -34,18 +34,21 @@
         <div class="panel panel-default">
             <h3 class="panel-title">
                 <ol class="breadcrumb">
-                    <li class="active"><?php echo $date; ?></li>
-                    <li><?php echo $author; ?></li>
-                    <li><?php echo $subject; ?></li>
+                    <?php foreach ($result as $data) {
+                    } ?>
+                    <li class="active"><?php echo $data['date']; ?></li>
+                    <li><?php echo $data['author']; ?></li>
+                    <li><?php echo $data['subject']; ?></li>
                 </ol>
             </h3>
             <div class="panel-body">
-                <?php echo $bodynews; ?>
+                <?php echo $data['bodynews']; ?>
             </div>
             <ul class="nav nav-pills">
-                <li role="presentation"><a href="/index.php?cntrl=admin&act=delete&id=<?php echo $id; ?>">Удалить</a>
+                <li role="presentation"><a href="/index.php?cntrl=admin&act=delete&id=<?php echo $data['id']; ?>">Удалить</a>
                 </li>
-                <li role="presentation"><a href="/ARCHIVE/newsedit.php?id=<?php echo $id; ?>">Редактировать</a></li>
+                <li role="presentation"><a href="/ARCHIVE/newsedit.php?id=<?php echo $data['id']; ?>">Редактировать</a>
+                </li>
             </ul>
         </div>
     </div>

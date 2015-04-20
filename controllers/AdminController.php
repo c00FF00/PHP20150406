@@ -2,23 +2,28 @@
 
 require __DIR__ . '/../model/News.php';
 require __DIR__ . '/AbstractController.php';
-
+require __DIR__ . '/../classes/View.php';
 
 class AdminController extends AbstractController
 
 {
 
+    public function __construct()
+    {
+        $this->view = new View('news');
+    }
+
     public function actionDelete()
     {
         $model = new News();
         $model->DeleteNew($this->table(), $_GET['id']);
-        $result = $model->GetAllSubject();
-        $this->render('newssubject', ['result' => $result]);
+        $this->view->result = $model->GetAllSubject();
+        $this->view->display('newssubject');
     }
 
     public function actionAdd()
     {
-        $this->renderForm('addnews');
+        $this->view->displayForm('addnews');
     }
 
     public function actionInsert()
@@ -26,7 +31,7 @@ class AdminController extends AbstractController
         $data = ['author' => $_POST['author'], 'subject' => $_POST['subject'], 'bodynews' => $_POST['bodynews']];
         $model = new News();
         $model->InsertNew($this->table(), $data);
-        $this->renderForm('addnews');
+        $this->view->displayForm('addnews');
     }
 
 
