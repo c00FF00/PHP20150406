@@ -11,11 +11,31 @@ abstract class Model
         return static::$table;
     }
 
-    public static function findAll()
+    public static function findAll($ext = null)
     {
-        $sql = 'SELECT * FROM ' . static::getTable();
+        $class = static::class;
+        $sql = 'SELECT * FROM ' . static::getTable() . ' ' . $ext;
         $db = new Db();
-        return $db->dbSelect($sql);
+        return $db->findAll($class, $sql);
     }
+
+    public static function findOne($id)
+    {
+        $class = static::class;
+        $sql = 'SELECT * FROM ' . static::getTable() . ' WHERE id=:id ' ;
+        $db = new Db();
+        return $db->findOne($class, $sql, [':id' => $id]);
+    }
+
+    public static function update($id)
+    {
+
+    }
+
+    public function insert()
+    {
+
+    }
+
 
 }

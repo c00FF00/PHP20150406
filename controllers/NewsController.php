@@ -1,8 +1,9 @@
 <?php
 
-require __DIR__ . '/../model/News.php';
+require __DIR__ . '/../model/NewsArticle.php';
 require __DIR__ . '/AbstractController.php';
 require __DIR__ . '/../classes/View.php';
+
 
 class NewsController extends AbstractController
 {
@@ -14,15 +15,13 @@ class NewsController extends AbstractController
 
     public function actionAll()
     {
-        $model = new News();
-        $this->view->result = $model->GetAllSubject();
+        $this->view->result = NewsArticle::findAll('ORDER BY DATE DESC LIMIT 0, 20');
         $this->view->display('newssubject');
     }
 
     public function actionOne()
     {
-        $model = new News();
-        $this->view->result = $model->GetOneNew($_GET['id']);
+        $this->view->result = NewsArticle::findOne($_GET['id']);
         $this->view->display('readnews');
     }
 

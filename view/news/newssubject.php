@@ -40,12 +40,12 @@ session_unset(); ?>
                 <th>Автор</th>
                 <th>Тема новости</th>
 
-                <?php foreach ($result as $subj) { ?>
+                <?php foreach ($result as $data) { ?>
                     <tr>
-                        <td><?php echo $subj['date']; ?></td>
-                        <td><?php echo $subj['author']; ?></td>
+                        <td><?php echo $data->date; ?></td>
+                        <td><?php echo $data->author; ?></td>
                         <td class="subj"><a
-                                href="/index.php?cntrl=news&act=one&id=<?php echo $subj['id']; ?>"><?php echo $subj['subject']; ?></a>
+                                href="/index.php?cntrl=news&act=one&id=<?php echo $data->id; ?>"><?php echo $data->subject; ?></a>
                         </td>
                     </tr>
 

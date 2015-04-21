@@ -31,13 +31,13 @@ class Db
         }
     }
 
-    public function dbSelectAllFromTable($dbTable)
+    public function dbSelectAll($dbTable)
     {
         $query = "SELECT * FROM `" . $dbTable . "`";
         return $this->dbSelect($query);
     }
 
-    public function dbSelectByFolder($dbTable, $data, $extsql = null)
+    public function dbSelectByColumns($dbTable, $data, $extsql = null)
     {
         $columns = implode(", ", $data);
         $query = "SELECT " . $columns . " FROM `" . $dbTable . "` " . $extsql;
@@ -75,5 +75,18 @@ class Db
         $sth = $this->dbh->prepare($sql);
         $sth->execute();
         return $sth->fetchAll();
+    }
+
+    public function findAll($class, $sql, $params = [])
+    {
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute($params);
+        $res = $sth->fetchAll(PDO::FETCH_CLASS, $class);
+        return $res;
+    }
+
+    public function findOne($class, $sql, $params = [])
+    {
+        return $this->findAll($class, $sql, $params);
     }
 }

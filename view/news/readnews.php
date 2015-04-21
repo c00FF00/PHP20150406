@@ -36,18 +36,18 @@
                 <ol class="breadcrumb">
                     <?php foreach ($result as $data) {
                     } ?>
-                    <li class="active"><?php echo $data['date']; ?></li>
-                    <li><?php echo $data['author']; ?></li>
-                    <li><?php echo $data['subject']; ?></li>
+                    <li class="active"><?php echo $data->date; ?></li>
+                    <li><?php echo $data->author; ?></li>
+                    <li><?php echo $data->subject; ?></li>
                 </ol>
             </h3>
             <div class="panel-body">
-                <?php echo $data['bodynews']; ?>
+                <?php echo $data->bodynews; ?>
             </div>
             <ul class="nav nav-pills">
-                <li role="presentation"><a href="/index.php?cntrl=admin&act=delete&id=<?php echo $data['id']; ?>">Удалить</a>
+                <li role="presentation"><a href="/index.php?cntrl=admin&act=delete&id=<?php echo $data->id; ?>">Удалить</a>
                 </li>
-                <li role="presentation"><a href="/ARCHIVE/newsedit.php?id=<?php echo $data['id']; ?>">Редактировать</a>
+                <li role="presentation"><a href="/ARCHIVE/newsedit.php?id=<?php echo $data->id; ?>">Редактировать</a>
                 </li>
             </ul>
         </div>
