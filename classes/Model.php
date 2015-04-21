@@ -32,10 +32,6 @@ abstract class Model
 
     }
 
-    public function insert()
-    {
-
-    }
 
 
 }

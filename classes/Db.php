@@ -64,10 +64,10 @@ class Db
         return $this->dbExec($del);
     }
 
-    public function dbExec($sql)
+    public function dbExec($sql, $params = [])
     {
-        $sth = $this->dbh->prepare($sql);
-        return $sth->execute();
+        $sth = $this->dbh->prepare($sql, $params);
+        return $sth->execute($params);
     }
 
     public function dbSelect($sql)
@@ -89,4 +89,5 @@ class Db
     {
         return $this->findAll($class, $sql, $params);
     }
+
 }

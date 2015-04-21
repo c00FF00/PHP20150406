@@ -1,6 +1,7 @@
 <?php
 
-require __DIR__ . '/../model/News.php';
+//require __DIR__ . '/../model/News.php';
+require __DIR__ . '/../model/NewsArticle.php';
 require __DIR__ . '/AbstractController.php';
 require __DIR__ . '/../classes/View.php';
 
@@ -23,15 +24,17 @@ class AdminController extends AbstractController
 
     public function actionAdd()
     {
-        $this->view->displayForm('addnews');
+        $this->view->display('addnews');
     }
 
     public function actionInsert()
     {
-        $data = ['author' => $_POST['author'], 'subject' => $_POST['subject'], 'bodynews' => $_POST['bodynews']];
-        $model = new News();
-        $model->InsertNew($this->table(), $data);
-        $this->view->displayForm('addnews');
+        $article = new NewsArticle();
+        $article->author = $_POST['author'];
+        $article->subject = $_POST['subject'];
+        $article->bodynews = $_POST['bodynews'];
+        $article->insert();
+        $this->view->display('addnews');
     }
 
 

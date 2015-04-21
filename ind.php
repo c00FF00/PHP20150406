@@ -1,6 +1,12 @@
 <?php
 
-
 require __DIR__ . '/model/NewsArticle.php';
 
-var_dump(NewsArticle::findAll());
+$article = new NewsArticle();
+$article->author = 'АВТОР';
+$article->subject = 'Тестовая ';
+$article->bodynews = '444444444444444444444444444';
+$article->insert();
+
+
+
