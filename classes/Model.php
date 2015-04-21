@@ -27,6 +27,9 @@ abstract class Model
         return $db->findOne($class, $sql, [':id' => $id]);
     }
 
+
+
+
     public static function update($id)
     {
 

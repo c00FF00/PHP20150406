@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 //require __DIR__ . '/../model/News.php';
 require __DIR__ . '/../model/NewsArticle.php';
 require __DIR__ . '/AbstractController.php';
@@ -34,6 +36,7 @@ class AdminController extends AbstractController
         $article->subject = $_POST['subject'];
         $article->bodynews = $_POST['bodynews'];
         $article->insert();
+        echo $article->id;
         $this->view->display('addnews');
     }
 

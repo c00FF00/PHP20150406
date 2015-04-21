@@ -67,8 +67,11 @@ class Db
     public function dbExec($sql, $params = [])
     {
         $sth = $this->dbh->prepare($sql, $params);
-        return $sth->execute($params);
+        $sth->execute($params);
+        return $this->dbh->lastInsertId();
     }
+
+
 
     public function dbSelect($sql)
     {
