@@ -3,13 +3,14 @@
 class Db
 
 {
-    protected $dbh;
+    protected $dbname;
 
     public function __construct()
     {
         $cfg = include __DIR__ . '/../config/db.php';
-        $dsn = 'mysql:dbname=' . $cfg['dbname'] . ';host=' . $cfg['host'];
-        $this->dbh = new PDO($dsn, $cfg['user'], $cfg['passw']);
+        $this->dbname = $cfg['dbname'];
+        mysql_connect($cfg['host'], $cfg['user'], $cfg['passw']);
+        mysql_select_db($this->dbname);
     }
 
     public function dbInsertRecord($dbTable, $data)
@@ -66,14 +67,22 @@ class Db
 
     public function dbExec($sql)
     {
-        $sth = $this->dbh->prepare($sql);
-        return $sth->execute();
+        $result = mysql_query($sql);
+        return $result;
     }
 
     public function dbSelect($sql)
     {
-        $sth = $this->dbh->prepare($sql);
-        $sth->execute();
-        return $sth->fetchAll();
+        $resquery = mysql_query($sql);
+        if (false !== $resquery) {
+            $ret = [];
+            while (false !== ($row = mysql_fetch_object($resquery))) {
+                $ret[] = $row;
+            }
+            return $ret;
+        } else {
+            return $resquery;
+        }
     }
 }
+
