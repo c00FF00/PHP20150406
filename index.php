@@ -1,30 +1,15 @@
 <?php
 
-if (!empty($_GET['cntrl'])) {
-    $controllerName = ($_GET['cntrl']);
-} else {
-    $controllerName = 'news';
-}
+include __DIR__ . '/classes/Valid.php';
 
-if (!empty($_GET['act'])) {
-    $act = $_GET['act'];
-} else {
-    $act = 'all';
-}
-
-$validController = ['news', 'admin'];
-$validAction = ['all', 'add', 'delete', 'insert', 'one', 'update', 'edit'];
-
-if (in_array($controllerName, $validController) || (in_array($act, $validAction))) {
-    $controllerName = ucfirst($controllerName) . 'Controller';
-    $actionName = 'action' . $act;
+if (Valid::Param($_GET['cntrl'], $_GET['act'])) {
+    $controllerName = ucfirst($_GET['cntrl']) . 'Controller';
+    $actionName = 'action' . $_GET['act'];
 } else {
     $controllerName = 'NewsController';
     $actionName = 'actionAll';
 }
 
-include __DIR__ . '/controllers/' . $controllerName . ".php";
+include __DIR__ . '/controllers/' . $controllerName . '.php';
 $controller = new $controllerName;
 $controller->$actionName();
-
-
