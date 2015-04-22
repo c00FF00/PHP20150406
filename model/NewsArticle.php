@@ -27,7 +27,10 @@ class NewsArticle extends Model
         $db->dbExec($sql, [':id' => $this->id, ':author' => $this->author, ':subject' => $this->subject, ':bodynews' => $this->bodynews]);
     }
 
+    public function save()
+    {
 
+    }
 
 
 

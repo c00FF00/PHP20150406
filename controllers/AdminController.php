@@ -11,6 +11,8 @@ class AdminController extends AbstractController
 
 {
 
+    protected $option = 'ORDER BY DATE DESC LIMIT 0, 20';
+
     public function __construct()
     {
         $this->view = new View('news');
@@ -19,7 +21,7 @@ class AdminController extends AbstractController
     public function actionDelete()
     {
         NewsArticle::delete($_GET['id']);
-        $this->view->result = NewsArticle::findAll('ORDER BY DATE DESC LIMIT 0, 20');
+        $this->view->result = NewsArticle::findAll($this->option);
         $this->view->display('newssubject');
     }
 
@@ -36,7 +38,7 @@ class AdminController extends AbstractController
         $article->subject = $_POST['subject'];
         $article->bodynews = $_POST['bodynews'];
         $article->update();
-        $this->view->result = NewsArticle::findAll('ORDER BY DATE DESC LIMIT 0, 20');
+        $this->view->result = NewsArticle::findAll($this->option);
         $this->view->display('newssubject');
     }
 
@@ -52,7 +54,7 @@ class AdminController extends AbstractController
         $article->subject = $_POST['subject'];
         $article->bodynews = $_POST['bodynews'];
         $article->insert();
-        echo $article->id;
+        var_dump($article->id);
         $this->view->display('addnews');
     }
 
