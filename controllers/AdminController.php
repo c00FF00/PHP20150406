@@ -18,9 +18,25 @@ class AdminController extends AbstractController
 
     public function actionDelete()
     {
-        $model = new News();
-        $model->DeleteNew($this->table(), $_GET['id']);
-        $this->view->result = $model->GetAllSubject();
+        NewsArticle::delete($_GET['id']);
+        $this->view->result = NewsArticle::findAll('ORDER BY DATE DESC LIMIT 0, 20');
+        $this->view->display('newssubject');
+    }
+
+    public function actionEdit()
+    {
+        $this->view->result = NewsArticle::findOne($_GET['id']);
+        $this->view->display('editnews');
+    }
+
+    public function actionUpdate() {
+        $article = new NewsArticle();
+        $article->id = $_POST['id'];
+        $article->author = $_POST['author'];
+        $article->subject = $_POST['subject'];
+        $article->bodynews = $_POST['bodynews'];
+        $article->update();
+        $this->view->result = NewsArticle::findAll('ORDER BY DATE DESC LIMIT 0, 20');
         $this->view->display('newssubject');
     }
 
@@ -39,7 +55,6 @@ class AdminController extends AbstractController
         echo $article->id;
         $this->view->display('addnews');
     }
-
 
     protected function getTemlatePath()
     {

@@ -4,6 +4,7 @@ require __DIR__ . '/../classes/Db.php';
 
 abstract class Model
 {
+
     protected static $table;
 
     public static function getTable()
@@ -27,13 +28,14 @@ abstract class Model
         return $db->findOne($class, $sql, [':id' => $id]);
     }
 
-
-
-
-    public static function update($id)
+    public static function delete($id)
     {
-
+        $sql = "DELETE FROM " . static::getTable() . " WHERE id=:id";
+        $db = new Db();
+        $db->dbExec($sql, [':id' => $id]);
     }
+
+
 
 
 

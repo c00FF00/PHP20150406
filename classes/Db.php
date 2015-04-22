@@ -64,14 +64,23 @@ class Db
         return $this->dbExec($del);
     }
 
-    public function dbExec($sql, $params = [])
+
+    //В новой концепции
+
+
+
+    public function dbExecRet($sql, $params = [])
     {
         $sth = $this->dbh->prepare($sql, $params);
         $sth->execute($params);
         return $this->dbh->lastInsertId();
     }
 
-
+    public function dbExec($sql, $params = [])
+    {
+        $sth = $this->dbh->prepare($sql, $params);
+        $sth->execute($params);
+    }
 
     public function dbSelect($sql)
     {

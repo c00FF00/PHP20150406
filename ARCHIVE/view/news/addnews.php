@@ -24,28 +24,30 @@
             <div class="panel-body">
                 <ul class="nav nav-pills">
                     <li role="presentation"><a href="/index.php">Главная</a></li>
-                    <li role="presentation" class="active"><a>Редактируем новость</a></li>
-
+                    <li role="presentation" class="active"><a>Добавляем новости</a></li>
                 </ul>
             </div>
         </div>
 
     </header>
 
-    <?php foreach ($result as $data) { } ?>
-    <form action="/index.php?cntrl=admin&act=update" method="post">
+    <!--    <div class="form-news">-->
+    <form action="/index.php?cntrl=admin&act=insert" method="post">
         <div class="form-group">
-            <input type="text" class="form-control" name="author" required placeholder="<?php echo $data->author; ?>">
+            <input type="text" class="form-control" required name="author" placeholder="Автор новости">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" name="subject" required placeholder="<?php echo $data->subject; ?>">
+            <input type="text" class="form-control" required name="subject" placeholder="Тема новости">
         </div>
         <div class="form-group">
-            <textarea class="form-control" rows="19" name="bodynews"><?php echo $data->bodynews; ?></textarea>
+            <textarea class="form-control" rows="19" required name="bodynews"
+                      placeholder="Введите новость...."></textarea>
         </div>
-        <button type="submit" class="btn btn-default" name="id" value="<?php echo $data->id; ?>">Сохранить</button>
-
+        <button type="submit" class="btn btn-default">Разместить</button>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;<?php //echo $_SESSION['msg']; ?></span>
     </form>
+    <!--    </div>-->
+
 
 </div>
 

@@ -13,7 +13,7 @@ if (!empty($_GET['act'])) {
 }
 
 $validController = ['news', 'admin'];
-$validAction = ['all', 'add', 'delete', 'insert', 'one'];
+$validAction = ['all', 'add', 'delete', 'insert', 'one', 'update', 'edit'];
 
 if (in_array($controllerName, $validController) || (in_array($act, $validAction))) {
     $controllerName = ucfirst($controllerName) . 'Controller';
