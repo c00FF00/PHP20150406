@@ -14,10 +14,11 @@ class NewsArticle extends Model
     public $bodynews;
     public $date;
 
-    public function insert() {
-        $sql = "INSERT INTO "  . static::getTable() . " ( author, subject, bodynews ) VALUES ( :author, :subject, :bodynews )";
+    public function insert()
+    {
+        $sql = "INSERT INTO " . static::getTable() . " ( author, subject, bodynews ) VALUES ( :author, :subject, :bodynews )";
         $db = new Db();
-        $this->id = $db->dbExecRet($sql,  [':author' => $this->author, ':subject' => $this->subject, ':bodynews' => $this->bodynews]);
+        $this->id = $db->dbExecRet($sql, [':author' => $this->author, ':subject' => $this->subject, ':bodynews' => $this->bodynews]);
     }
 
     public function update()
@@ -29,9 +30,12 @@ class NewsArticle extends Model
 
     public function save()
     {
-
+        if (isset($this->id)) {
+            $this->update();
+        } else {
+            $this->insert();
+        }
     }
-
 
 
 }

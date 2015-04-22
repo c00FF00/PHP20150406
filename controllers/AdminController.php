@@ -36,7 +36,7 @@ class AdminController extends AbstractController
         $article->author = $_POST['author'];
         $article->subject = $_POST['subject'];
         $article->bodynews = $_POST['bodynews'];
-        $article->update();
+        $article->save();
         $this->view->result = NewsArticle::findAll($this->option);
         $this->view->display('newssubject');
     }
@@ -52,8 +52,7 @@ class AdminController extends AbstractController
         $article->author = $_POST['author'];
         $article->subject = $_POST['subject'];
         $article->bodynews = $_POST['bodynews'];
-        $article->insert();
-        var_dump($article->id);
+        $article->save();
         $this->view->display('addnews');
     }
 
