@@ -30,7 +30,8 @@ class AdminController extends AbstractController
         $this->view->display('editnews');
     }
 
-    public function actionUpdate() {
+    public function actionUpdate()
+    {
         $article = new NewsArticle();
         $article->id = $_POST['id'];
         $article->author = $_POST['author'];
