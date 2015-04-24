@@ -2,10 +2,6 @@
 
 session_start();
 
-//require __DIR__ . '/../model/NewsArticle.php';
-//require __DIR__ . '/AbstractController.php';
-//require __DIR__ . '/../classes/View.php';
-
 class AdminController extends AbstractController
 
 {

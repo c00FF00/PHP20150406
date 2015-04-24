@@ -1,6 +1,5 @@
 <?php
 
-//include __DIR__ . '/classes/Valid.php';
 include __DIR__ . '/autoload.php';
 
 if (Valid::Param($_GET['cntrl'], $_GET['act'])) {
@@ -11,6 +10,5 @@ if (Valid::Param($_GET['cntrl'], $_GET['act'])) {
     $actionName = 'actionAll';
 }
 
-//include __DIR__ . '/controllers/' . $controllerName . '.php';
 $controller = new $controllerName;
 $controller->$actionName();

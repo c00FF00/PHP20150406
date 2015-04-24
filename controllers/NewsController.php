@@ -1,12 +1,9 @@
 <?php
 
-//require __DIR__ . '/../model/NewsArticle.php';
-//require __DIR__ . '/AbstractController.php';
-//require __DIR__ . '/../classes/View.php';
-
-
 class NewsController extends AbstractController
 {
+
+    protected $option = 'ORDER BY date DESC LIMIT 0, 20';
 
     public function __construct()
     {
@@ -15,7 +12,7 @@ class NewsController extends AbstractController
 
     public function actionAll()
     {
-        $this->view->result = NewsArticle::findAll('ORDER BY DATE DESC LIMIT 0, 20');
+        $this->view->result = NewsArticle::findAll($this->option);
         $this->view->display('newssubject');
     }
 
