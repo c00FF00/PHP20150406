@@ -10,7 +10,7 @@ class AdminController extends AbstractController
 
 {
 
-    protected $option = 'ORDER BY DATE DESC LIMIT 0, 20';
+    protected $option = 'ORDER BY date DESC LIMIT 0, 20';
 
     public function __construct()
     {

@@ -7,6 +7,8 @@ abstract class Model
 
     protected static $table;
 
+    public $id;
+
     public static function getTable()
     {
         return static::$table;
@@ -37,16 +39,37 @@ abstract class Model
 
     public function insert()
     {
-        $sql = "INSERT INTO " . static::getTable() . " ( author, subject, bodynews ) VALUES ( :author, :subject, :bodynews )";
+        $properties = get_object_vars($this);
+        unset($properties['id']);
+        $columns = array_keys($properties);
+        $places = [];
+        $data = [];
+        foreach ($columns as $property) {
+            $places[] = ':' . $property;
+            $data[':' . $property] = $this->$property;
+        }
+        $sql = 'INSERT INTO ' . static::getTable() . '(' . implode(', ', $columns) . ') VALUES (' . implode(', ', $places) . ')';
         $db = new Db();
-        $this->id = $db->dbExecRet($sql, [':author' => $this->author, ':subject' => $this->subject, ':bodynews' => $this->bodynews]);
+        $db->dbExec($sql, $data);
+        $this->id = $db->getId();
     }
 
     public function update()
     {
-        $sql = "UPDATE " . static::getTable() . " SET author=:author, subject=:subject, bodynews=:bodynews WHERE id=:id";
+        $properties = get_object_vars($this);
+        unset($properties['id']);
+        $columns = array_keys($properties);
+        $places = [];
+        $data = [];
+        foreach ($columns as $property) {
+            $places[] = ':' . $property;
+            $data[':' . $property] = $this->$property;
+            $dataset[] = $property . '=:' . $property;
+        }
+        $data[':id'] = $this->id;
+        $sql = 'UPDATE ' . static::getTable() . ' SET ' .  implode(', ',$dataset)  . ' WHERE id=:id';
         $db = new Db();
-        $db->dbExec($sql, [':id' => $this->id, ':author' => $this->author, ':subject' => $this->subject, ':bodynews' => $this->bodynews]);
+        $db->dbExec($sql, $data);
     }
 
     public function save()

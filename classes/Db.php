@@ -45,4 +45,8 @@ class Db
         return $this->findAll($class, $sql, $params);
     }
 
+    public function getId()
+    {
+        return $this->dbh->lastInsertId();
+    }
 }
