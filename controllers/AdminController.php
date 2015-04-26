@@ -28,8 +28,7 @@ class AdminController extends AbstractController
 
     public function actionUpdate()
     {
-        $article = new NewsArticle();
-        $article->id = $_POST['id'];
+        $article = NewsArticle::findOne($_POST['id'])[0];
         $article->author = $_POST['author'];
         $article->subject = $_POST['subject'];
         $article->bodynews = $_POST['bodynews'];
