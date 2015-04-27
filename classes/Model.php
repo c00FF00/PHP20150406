@@ -30,7 +30,7 @@ abstract class Model
             return $res;
         } else {
            throw new E404Exception();
-        };
+        }
     }
 
     public static function delete($id)

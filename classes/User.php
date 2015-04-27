@@ -5,7 +5,9 @@ class User
 
     protected static $table = 'users';
 
+    public $login;
     public $name;
+    public $lastName;
     public $passw;
     public $role;
 
@@ -15,20 +17,15 @@ class User
     }
 
     public function auth()
-    {
-        $sql = 'SELECT * FROM ' . static::getTable() . ' WHERE user=:user';
-        $db = new Db();
-        $res = $db->dbExec($sql, [':user' => $this->name]);
+   {
+//        $sql = 'SELECT login, passw, role FROM ' . static::getTable() . ' WHERE login=:login';
+//        $db = new Db();
+//        $res = $db->findAll($sql, [':login' => $this->login])[0];
+//
+//        var_dump($res);
 
-        if ($res) {
-                } else {
-            return false;
-        }
 
+        throw new E403Exception();
     }
 
-    public function authUser()
-    {
-
-    }
 }

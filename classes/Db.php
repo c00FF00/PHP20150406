@@ -22,7 +22,8 @@ class Db
     public function dbExec($sql, $params = [])
     {
         $sth = $this->dbh->prepare($sql, $params);
-        $sth->execute($params);
+        $res = $sth->execute($params);
+        //return $res;
     }
 
     public function findAll($class, $sql, $params = [])

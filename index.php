@@ -14,6 +14,5 @@ try {
     $controller = new $controllerName;
     $controller->$actionName();
 } catch (E404Exception $e) {
-    $controller = new NewsController();
     $controller->action404();
 }
