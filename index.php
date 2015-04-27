@@ -9,6 +9,10 @@ if (Valid::Param($_GET['cntrl'], $_GET['act'])) {
     $controllerName = 'NewsController';
     $actionName = 'actionAll';
 }
-
-$controller = new $controllerName;
-$controller->$actionName();
+try {
+    $controller = new $controllerName;
+    $controller->$actionName();
+} catch (E404Exception $e) {
+    $controller = new NewsController();
+    $controller->action404();
+}

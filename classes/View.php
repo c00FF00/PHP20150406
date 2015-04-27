@@ -33,10 +33,11 @@ class View
         include($this->path . '/' . $template . '.php');
     }
 
-    public function displayForm($template)
+    public function displayErr($template)
     {
-        include($this->path . '/' . $template . '.php');
+        include($this->path . '/../err/' . $template . '.php');
     }
+
 
 
 }

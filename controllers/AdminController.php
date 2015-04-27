@@ -52,6 +52,12 @@ class AdminController extends AbstractController
         $this->view->display('addnews');
     }
 
+    public function action403()
+    {
+        $this->view->result = E403Exception::message();
+        $this->view->displayErr('error');
+    }
+
     protected function getTemlatePath()
     {
         return __DIR__ . '/../view/news/';

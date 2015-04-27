@@ -25,13 +25,6 @@ class Db
         $sth->execute($params);
     }
 
-//    public function dbSelect($sql)
-//    {
-//        $sth = $this->dbh->prepare($sql);
-//        $sth->execute();
-//        return $sth->fetchAll();
-//    }
-
     public function findAll($class, $sql, $params = [])
     {
         $sth = $this->dbh->prepare($sql);

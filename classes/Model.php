@@ -23,9 +23,16 @@ abstract class Model
     public static function findOne($id)
     {
         $class = static::class;
-        $sql = 'SELECT * FROM ' . static::getTable() . ' WHERE id=:id ' ;
+        $sql = 'SELECT * FROM ' . static::getTable() . ' WHERE id=:id ';
         $db = new Db();
-        return $db->findOne($class, $sql, [':id' => $id]);
+        $res = $db->findOne($class, $sql, [':id' => $id]);
+        if ($res) {
+            return $res;
+        } else {
+           throw new E404Exception();
+        };
+
+        //return $db->findOne($class, $sql, [':id' => $id]);
     }
 
     public static function delete($id)
@@ -65,7 +72,7 @@ abstract class Model
             $dataset[] = $property . '=:' . $property;
         }
         $data[':id'] = $this->id;
-        $sql = 'UPDATE ' . static::getTable() . ' SET ' .  implode(', ',$dataset)  . ' WHERE id=:id';
+        $sql = 'UPDATE ' . static::getTable() . ' SET ' . implode(', ', $dataset) . ' WHERE id=:id';
         $db = new Db();
         $db->dbExec($sql, $data);
     }
