@@ -23,7 +23,7 @@ class Db
     {
         $sth = $this->dbh->prepare($sql, $params);
         $res = $sth->execute($params);
-        //return $res;
+        return $res;
     }
 
     public function findAll($class, $sql, $params = [])

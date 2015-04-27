@@ -8,10 +8,10 @@
 
 <form action="/index.php?cntrl=admin&act=auth" method="post">
     <div>
-        <input type="email" class="form-control" name="login" required placeholder="E-mail">
+        <input type="text" class="form-control" name="login"   placeholder="E-mail">
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" name="passw" required placeholder="Password">
+        <input type="text" class="form-control" name="passw"  placeholder="Password">
     </div>
     <button type="submit" >Enter</button>
 </form>

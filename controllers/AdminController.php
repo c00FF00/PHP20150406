@@ -22,6 +22,7 @@ class AdminController extends AbstractController
 
     public function actionEdit()
     {
+
         $this->view->result = NewsArticle::findOne($_GET['id']);
         $this->view->display('editnews');
     }
@@ -52,16 +53,21 @@ class AdminController extends AbstractController
         $this->view->display('addnews');
     }
 
-    public function actionAuth()
-    {
-        try {
-            User::auth($_POST['login'], $_POST['passw']);
-            $this->view->display('addnews');
-        } catch (E403Exception $e) {
-            $this->action403();
-        }
 
-    }
+
+//    public function actionAuth()
+//    {
+//        try {
+//            $user = new NewsUsers();
+//            $user->login = $_POST['login'];
+//            $user->passw = $_POST['passw'];
+//            $user->check();
+//           // var_dump($user);
+//            $this->view->display('addnews');
+//        } catch (E403Exception $e) {
+//            $this->action403();
+//        }
+//    }
 
     public function action403()
     {
