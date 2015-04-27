@@ -55,8 +55,7 @@ class AdminController extends AbstractController
     public function actionAuth()
     {
         try {
-            $user = new User();
-            $user->auth();
+            $user = User::auth($_POST['login'], $_POST['passw'])[0];
             $this->view->display('addnews');
         } catch (E403Exception $e) {
             $this->action403();

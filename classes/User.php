@@ -16,16 +16,15 @@ class User
         return static::$table;
     }
 
-    public function auth()
-   {
-//        $sql = 'SELECT login, passw, role FROM ' . static::getTable() . ' WHERE login=:login';
-//        $db = new Db();
-//        $res = $db->findAll($sql, [':login' => $this->login])[0];
-//
-//        var_dump($res);
-
-
-        throw new E403Exception();
+    public static function auth($login, $passw)
+    {
+        $class = static::class;
+        $sql = 'SELECT login, passw, role FROM ' . static::getTable() . ' WHERE login=:login ';
+        $db = new Db();
+        $res = $db->findOne($class, $sql, [':login' => $login]);
+        echo $passw;
+        return $res;
+        //  throw new E403Exception();
     }
 
 }
