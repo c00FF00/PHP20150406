@@ -56,7 +56,7 @@ class AdminController extends AbstractController
     {
         $except = new E403Exception();
         $this->view->result = $except->message();
-        $this->view->displayErr('error');
+        $this->view->display('error');
     }
 
     protected function getTemlatePath()
