@@ -18,15 +18,15 @@ class NewsController extends AbstractController
 
     public function actionOne()
     {
-            $this->view->result = NewsArticle::findOne($_GET['id']);
-            $this->view->display('readnews');
+        $this->view->result = NewsArticle::findOne($_GET['id']);
+        $this->view->display('readnews');
     }
 
     public function action404()
     {
         $except = new E404Exception();
         $this->view->result = $except->message();
-        $this->view->displayErr('error');
+        $this->view->display('error');
     }
 
     protected function getTemlatePath()

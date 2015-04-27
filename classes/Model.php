@@ -31,8 +31,6 @@ abstract class Model
         } else {
            throw new E404Exception();
         };
-
-        //return $db->findOne($class, $sql, [':id' => $id]);
     }
 
     public static function delete($id)

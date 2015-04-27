@@ -9,6 +9,7 @@ if (Valid::Param($_GET['cntrl'], $_GET['act'])) {
     $controllerName = 'NewsController';
     $actionName = 'actionAll';
 }
+
 try {
     $controller = new $controllerName;
     $controller->$actionName();

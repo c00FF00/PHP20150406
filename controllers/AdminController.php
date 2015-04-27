@@ -54,7 +54,8 @@ class AdminController extends AbstractController
 
     public function action403()
     {
-        $this->view->result = E403Exception::message();
+        $except = new E403Exception();
+        $this->view->result = $except->message();
         $this->view->displayErr('error');
     }
 
