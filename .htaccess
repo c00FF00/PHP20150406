@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /
+
+RewriteCondition %{REQUEST_FILENAME} !-f
+RewriteCondition %{REQUEST_FILENAME} !-d
+RewriteRule (.*) index.php?__route=$1 []QSA,L]
