@@ -4,7 +4,7 @@ function __autoload($class)
     $paths = [
         __DIR__ . '/classes',
         __DIR__ . '/controllers',
-        __DIR__ . '/model',
+        __DIR__ . '/model'
     ];
     foreach ($paths as $path) {
         $fileName = $path . '/' . $class . '.php';

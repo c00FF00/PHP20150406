@@ -1,0 +1,7 @@
+{
+  "require": {
+    "phpmailer/phpmailer": "dev-master",
+    "twig/twig": "2.0.*@dev",
+    "josephbergevin/phptimer": "dev-master"
+  }
+}
