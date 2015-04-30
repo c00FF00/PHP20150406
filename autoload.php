@@ -24,8 +24,8 @@ function __autoload($class)
             unset($classNameParts[0]);
             $fileName = __DIR__ . '/' . implode('/', $classNameParts) . '.php';
             if (file_exists($fileName)) {
-                echo $fileName;
-                return true; die;
+                require $fileName;
+                return true;
             }
         }
     }
