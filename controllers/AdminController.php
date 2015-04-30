@@ -49,11 +49,11 @@ class AdminController extends AbstractController
         $email = new Mailer();
         $email->sender('grigory@mail.ru', 'Администратор');
         $email->to('grigory.e@gmail.com');
-        $email->data('Размещение новости','Новость автора ' . $_POST['author']  . ' размещена. ID новости ' . $_POST['id']);
         $article->author = $_POST['author'];
         $article->subject = $_POST['subject'];
         $article->bodynews = $_POST['bodynews'];
         $article->save();
+        $email->data('Размещение новости','Новость автора [ ' . $_POST['author']  . ' ] размещена. ID новости [ ' . $article->id . ' ]');
         if( $email->send() ){
             echo 'Письмо отправлено';
         } else {
@@ -62,22 +62,6 @@ class AdminController extends AbstractController
         }
         $this->view->display('addnews');
     }
-
-
-
-//    public function actionAuth()
-//    {
-//        try {
-//            $user = new NewsUsers();
-//            $user->login = $_POST['login'];
-//            $user->passw = $_POST['passw'];
-//            $user->check();
-//           // var_dump($user);
-//            $this->view->display('addnews');
-//        } catch (E403Exception $e) {
-//            $this->action403();
-//        }
-//    }
 
     public function action403()
     {

@@ -28,20 +28,3 @@ class Mailer extends PHPMailer {
     }
 
 }
-
-
-//$email = new Mailer();
-//
-//$email->sender('grigory@mail.ru', 'Администратор');
-//$email->to('grigory.e@gmail.com');
-//$email->data('Сабжект','Тело письма');
-
-//if( $email->send() ){
-//    echo 'Письмо отправлено';
-//} else {
-//    echo 'Письмо не может быть отправлено. ';
-//    echo 'Ошибка: ' . $email->ErrorInfo;
-//}
-
-
-
