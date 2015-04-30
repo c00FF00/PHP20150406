@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Classes;
+
 include __DIR__ . '/../vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 
 class Mailer extends PHPMailer {

@@ -1,8 +1,12 @@
 <?php
 
-session_start();
 
-class AdminController extends AbstractController
+namespace App\Controllers;
+use App\Classes\Mailer;
+use App\Classes\E403Exception;
+use App\Models\News as Model;
+
+class Admin extends \AbstractController
 
 {
 
@@ -10,31 +14,31 @@ class AdminController extends AbstractController
 
     public function __construct()
     {
-        $this->view = new View('news');
+        $this->view = new \View('news');
     }
 
     public function actionDelete()
     {
-        NewsArticle::delete($_GET['id']);
-        $this->view->result = NewsArticle::findAll($this->option);
+        Model::delete($_GET['id']);
+        $this->view->result = Model::findAll($this->option);
         $this->view->display('newssubject');
     }
 
     public function actionEdit()
     {
 
-        $this->view->result = NewsArticle::findOne($_GET['id']);
+        $this->view->result = Model::findOne($_GET['id']);
         $this->view->display('editnews');
     }
 
     public function actionUpdate()
     {
-        $article = NewsArticle::findOne($_POST['id'])[0];
+        $article = Model::findOne($_POST['id'])[0];
         $article->author = $_POST['author'];
         $article->subject = $_POST['subject'];
         $article->bodynews = $_POST['bodynews'];
         $article->save();
-        $this->view->result = NewsArticle::findAll($this->option);
+        $this->view->result = Model::findAll($this->option);
         $this->view->display('newssubject');
     }
 
@@ -45,7 +49,7 @@ class AdminController extends AbstractController
 
     public function actionInsert()
     {
-        $article = new NewsArticle();
+        $article = new News();
         $email = new Mailer();
         $email->sender('grigory@mail.ru', 'Администратор');
         $email->to('grigory.e@gmail.com');

@@ -1,24 +1,27 @@
 <?php
 
-class NewsController extends AbstractController
-{
+namespace App\Controllers;
+use App\Classes\E404Exception;
+use App\Models\News as Model;
 
+class News extends \AbstractController
+{
     protected $option = 'ORDER BY date DESC LIMIT 0, 20';
 
     public function __construct()
     {
-        $this->view = new View('news');
+        $this->view = new \View('news');
     }
 
     public function actionAll()
     {
-        $this->view->result = NewsArticle::findAll($this->option);
+        $this->view->result = Model::findAll($this->option);
         $this->view->display('newssubject');
     }
 
     public function actionOne()
     {
-        $this->view->result = NewsArticle::findOne($_GET['id']);
+        $this->view->result = Model::findOne($_GET['id']);
         $this->view->display('readnews');
     }
 
