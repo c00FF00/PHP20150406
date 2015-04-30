@@ -14,14 +14,13 @@ include __DIR__ . '/autoload.php';
 //}
 
 
-$ctrl = !empty($_GET['cntrl']) ? $_GET['cntrl'] : 'news';
-$action = !empty($_GET['act']) ? $_GET['act'] : 'actionAll';
+$ctrl = !empty($_GET['ctrl']) ? $_GET['ctrl'] : 'news';
+$act = !empty($_GET['act']) ? $_GET['act'] : 'all';
+$ctrlClassName = ucfirst($ctrl) . 'Controller';
 
-$controllerName = 'App\\Controllers\\' . ucfirst($ctrl);;
-$controller = new $controllerName();
-$method = 'action' . ucfirst($action);
-$method->$action();
-
+$controller = new $ctrlClassName;
+$method = 'action' . ucfirst($act);
+$controller->$method();
 
 //try {
 //    $controller = new $controllerName;
