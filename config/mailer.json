@@ -1,0 +1,11 @@
+{
+
+  "smtp": {
+    "host": "",
+    "username": "",
+    "password": "",
+    "secure": "",
+    "port": ""
+  }
+
+}
