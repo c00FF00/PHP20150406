@@ -34,7 +34,8 @@
         <div class="panel panel-default">
             <h3 class="panel-title">
                 <ol class="breadcrumb">
-                    <?php foreach ($result as $data) { } ?>
+                    <?php foreach ($result as $data) {
+                    } ?>
                     <li class="active"><?php echo $data->date; ?></li>
                     <li><?php echo $data->author; ?></li>
                     <li><?php echo $data->subject; ?></li>
@@ -44,7 +45,8 @@
                 <?php echo $data->bodynews; ?>
             </div>
             <ul class="nav nav-pills">
-                <li role="presentation"><a href="/index.php?cntrl=admin&act=delete&id=<?php echo $data->id; ?>">Удалить</a>
+                <li role="presentation"><a
+                        href="/index.php?cntrl=admin&act=delete&id=<?php echo $data->id; ?>">Удалить</a>
                 </li>
                 <li role="presentation"><a href="/index.php?cntrl=admin&act=edit&id=<?php echo $data->id; ?>">Редактировать</a>
                 </li>

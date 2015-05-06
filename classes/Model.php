@@ -29,7 +29,7 @@ abstract class Model
         if ($res) {
             return $res;
         } else {
-           throw new E404Exception();
+            throw new E404Exception();
         }
     }
 

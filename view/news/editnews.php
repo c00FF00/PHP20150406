@@ -32,7 +32,8 @@
 
     </header>
 
-    <?php foreach ($result as $data) { } ?>
+    <?php foreach ($result as $data) {
+    } ?>
     <form action="/index.php?cntrl=admin&act=update" method="post">
         <div class="form-group">
             <input type="text" class="form-control" name="author" required placeholder="<?php echo $data->author; ?>">

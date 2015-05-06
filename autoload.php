@@ -1,4 +1,9 @@
 <?php
+
+spl_autoload_register('__autoload');
+
+require __DIR__ . '/vendor/autoload.php';
+
 function __autoload($class)
 {
     $paths = [

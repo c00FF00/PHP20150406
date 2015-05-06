@@ -1,142 +1,142 @@
 [
-    {
-        "name": "phpmailer/phpmailer",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/PHPMailer/PHPMailer.git",
-            "reference": "b2be749db66ac56e0c70856b230f0763ce5e77d3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/b2be749db66ac56e0c70856b230f0763ce5e77d3",
-            "reference": "b2be749db66ac56e0c70856b230f0763ce5e77d3",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.0.0"
-        },
-        "require-dev": {
-            "phpdocumentor/phpdocumentor": "*",
-            "phpunit/phpunit": "4.3.*"
-        },
-        "time": "2015-05-06 07:13:17",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "classmap": [
-                "class.phpmailer.php",
-                "class.smtp.php",
-                "class.pop3.php",
-                "extras/EasyPeasyICS.php",
-                "extras/ntlm_sasl_client.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "LGPL-2.1"
-        ],
-        "authors": [
-            {
-                "name": "Jim Jagielski",
-                "email": "jimjag@gmail.com"
-            },
-            {
-                "name": "Marcus Bointon",
-                "email": "phpmailer@synchromedia.co.uk"
-            },
-            {
-                "name": "Andy Prevost",
-                "email": "codeworxtech@users.sourceforge.net"
-            },
-            {
-                "name": "Brent R. Matzelle"
-            }
-        ],
-        "description": "PHPMailer is a full-featured email creation and transfer class for PHP"
+  {
+    "name": "phpmailer/phpmailer",
+    "version": "dev-master",
+    "version_normalized": "9999999-dev",
+    "source": {
+      "type": "git",
+      "url": "https://github.com/PHPMailer/PHPMailer.git",
+      "reference": "b2be749db66ac56e0c70856b230f0763ce5e77d3"
     },
-    {
-        "name": "twig/twig",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/twigphp/Twig.git",
-            "reference": "34e943ae7cca8f9aff666fb87c3e6860e18fc138"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/twigphp/Twig/zipball/34e943ae7cca8f9aff666fb87c3e6860e18fc138",
-            "reference": "34e943ae7cca8f9aff666fb87c3e6860e18fc138",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.5.0"
-        },
-        "time": "2015-03-17 06:32:29",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "Twig_": "lib/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com",
-                "homepage": "http://fabien.potencier.org",
-                "role": "Lead Developer"
-            },
-            {
-                "name": "Armin Ronacher",
-                "email": "armin.ronacher@active-4.com",
-                "role": "Project Founder"
-            },
-            {
-                "name": "Twig Team",
-                "homepage": "http://twig.sensiolabs.org/contributors",
-                "role": "Contributors"
-            }
-        ],
-        "description": "Twig, the flexible, fast, and secure template language for PHP",
-        "homepage": "http://twig.sensiolabs.org",
-        "keywords": [
-            "templating"
-        ]
+    "dist": {
+      "type": "zip",
+      "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/b2be749db66ac56e0c70856b230f0763ce5e77d3",
+      "reference": "b2be749db66ac56e0c70856b230f0763ce5e77d3",
+      "shasum": ""
     },
-    {
-        "name": "josephbergevin/phptimer",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/josephbergevin/phptimer.git",
-            "reference": "d893ee340476ca6d66c76d3e75a7a7e42a565a44"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/josephbergevin/phptimer/zipball/d893ee340476ca6d66c76d3e75a7a7e42a565a44",
-            "reference": "d893ee340476ca6d66c76d3e75a7a7e42a565a44",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0"
-        },
-        "time": "2013-12-28 23:11:40",
-        "type": "library",
-        "installation-source": "source",
-        "notification-url": "https://packagist.org/downloads/",
-        "homepage": "https://github.com/josephbergevin/phptimer"
-    }
+    "require": {
+      "php": ">=5.0.0"
+    },
+    "require-dev": {
+      "phpdocumentor/phpdocumentor": "*",
+      "phpunit/phpunit": "4.3.*"
+    },
+    "time": "2015-05-06 07:13:17",
+    "type": "library",
+    "installation-source": "source",
+    "autoload": {
+      "classmap": [
+        "class.phpmailer.php",
+        "class.smtp.php",
+        "class.pop3.php",
+        "extras/EasyPeasyICS.php",
+        "extras/ntlm_sasl_client.php"
+      ]
+    },
+    "notification-url": "https://packagist.org/downloads/",
+    "license": [
+      "LGPL-2.1"
+    ],
+    "authors": [
+      {
+        "name": "Jim Jagielski",
+        "email": "jimjag@gmail.com"
+      },
+      {
+        "name": "Marcus Bointon",
+        "email": "phpmailer@synchromedia.co.uk"
+      },
+      {
+        "name": "Andy Prevost",
+        "email": "codeworxtech@users.sourceforge.net"
+      },
+      {
+        "name": "Brent R. Matzelle"
+      }
+    ],
+    "description": "PHPMailer is a full-featured email creation and transfer class for PHP"
+  },
+  {
+    "name": "twig/twig",
+    "version": "dev-master",
+    "version_normalized": "9999999-dev",
+    "source": {
+      "type": "git",
+      "url": "https://github.com/twigphp/Twig.git",
+      "reference": "34e943ae7cca8f9aff666fb87c3e6860e18fc138"
+    },
+    "dist": {
+      "type": "zip",
+      "url": "https://api.github.com/repos/twigphp/Twig/zipball/34e943ae7cca8f9aff666fb87c3e6860e18fc138",
+      "reference": "34e943ae7cca8f9aff666fb87c3e6860e18fc138",
+      "shasum": ""
+    },
+    "require": {
+      "php": ">=5.5.0"
+    },
+    "time": "2015-03-17 06:32:29",
+    "type": "library",
+    "extra": {
+      "branch-alias": {
+        "dev-master": "2.0-dev"
+      }
+    },
+    "installation-source": "source",
+    "autoload": {
+      "psr-0": {
+        "Twig_": "lib/"
+      }
+    },
+    "notification-url": "https://packagist.org/downloads/",
+    "license": [
+      "BSD-3-Clause"
+    ],
+    "authors": [
+      {
+        "name": "Fabien Potencier",
+        "email": "fabien@symfony.com",
+        "homepage": "http://fabien.potencier.org",
+        "role": "Lead Developer"
+      },
+      {
+        "name": "Armin Ronacher",
+        "email": "armin.ronacher@active-4.com",
+        "role": "Project Founder"
+      },
+      {
+        "name": "Twig Team",
+        "homepage": "http://twig.sensiolabs.org/contributors",
+        "role": "Contributors"
+      }
+    ],
+    "description": "Twig, the flexible, fast, and secure template language for PHP",
+    "homepage": "http://twig.sensiolabs.org",
+    "keywords": [
+      "templating"
+    ]
+  },
+  {
+    "name": "josephbergevin/phptimer",
+    "version": "dev-master",
+    "version_normalized": "9999999-dev",
+    "source": {
+      "type": "git",
+      "url": "https://github.com/josephbergevin/phptimer.git",
+      "reference": "d893ee340476ca6d66c76d3e75a7a7e42a565a44"
+    },
+    "dist": {
+      "type": "zip",
+      "url": "https://api.github.com/repos/josephbergevin/phptimer/zipball/d893ee340476ca6d66c76d3e75a7a7e42a565a44",
+      "reference": "d893ee340476ca6d66c76d3e75a7a7e42a565a44",
+      "shasum": ""
+    },
+    "require": {
+      "php": ">=5.3.0"
+    },
+    "time": "2013-12-28 23:11:40",
+    "type": "library",
+    "installation-source": "source",
+    "notification-url": "https://packagist.org/downloads/",
+    "homepage": "https://github.com/josephbergevin/phptimer"
+  }
 ]

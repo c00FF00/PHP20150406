@@ -2,6 +2,7 @@
 
 
 namespace App\Controllers;
+
 use App\Classes\Mailer;
 use App\Classes\E403Exception;
 use App\Models\News as Model;
@@ -57,8 +58,8 @@ class Admin extends \AbstractController
         $article->subject = $_POST['subject'];
         $article->bodynews = $_POST['bodynews'];
         $article->save();
-        $email->data('Размещение новости','Новость автора [ ' . $_POST['author']  . ' ] размещена. ID новости [ ' . $article->id . ' ]');
-        if( $email->send() ){
+        $email->data('Размещение новости', 'Новость автора [ ' . $_POST['author'] . ' ] размещена. ID новости [ ' . $article->id . ' ]');
+        if ($email->send()) {
             echo 'Письмо отправлено';
         } else {
             echo 'Письмо не может быть отправлено. ';

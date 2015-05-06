@@ -7,9 +7,10 @@ class Db
 
     public function __construct()
     {
-        $cfg = include __DIR__ . '/../config/db.php';
-        $dsn = 'mysql:dbname=' . $cfg['dbname'] . ';host=' . $cfg['host'];
-        $this->dbh = new PDO($dsn, $cfg['user'], $cfg['passw']);
+        $json = file_get_contents(__DIR__ . '/../config/site.json');
+        $cfg = json_decode($json);
+        $dsn = 'mysql:dbname=' . $cfg->db->dbname . ';host=' . $cfg->db->host;
+        $this->dbh = new PDO($dsn, $cfg->db->user, $cfg->db->passw);
     }
 
     public function dbExecRet($sql, $params = [])

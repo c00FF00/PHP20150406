@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Classes\E404Exception;
 use App\Models\News as Model;
 
