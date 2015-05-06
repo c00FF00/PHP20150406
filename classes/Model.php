@@ -33,6 +33,20 @@ abstract class Model
         }
     }
 
+    public static function findUser($login)
+    {
+        $class = static::class;
+        $sql = 'SELECT * FROM ' . static::getTable() . ' WHERE login=:login ';
+        $db = new Db();
+        $res = $db->findOne($class, $sql, [':login' => $login]);
+        if ($res) {
+            return $res;
+        } else {
+            throw new E404Exception();
+        }
+    }
+
+
     public static function delete($id)
     {
         $sql = "DELETE FROM " . static::getTable() . " WHERE id=:id";

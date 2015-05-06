@@ -11,6 +11,7 @@ class AdminController extends AbstractController
     public function __construct()
     {
         $this->view = new View('news');
+
     }
 
     public function actionDelete()
@@ -40,7 +41,7 @@ class AdminController extends AbstractController
 
     public function actionAdd()
     {
-        $this->view->display('addnews');
+       $this->view->display('addnews');
     }
 
     public function actionInsert()
