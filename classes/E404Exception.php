@@ -1,7 +1,5 @@
 <?php
 
-namespace App\Classes;
-
 class E404Exception extends Exception
 {
     public  $msg = '404. Не найдено.';

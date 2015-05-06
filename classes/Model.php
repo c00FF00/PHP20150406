@@ -54,7 +54,7 @@ abstract class Model
         $sql = 'INSERT INTO ' . static::getTable() . '(' . implode(', ', $columns) . ') VALUES (' . implode(', ', $places) . ')';
         $db = new Db();
         $db->dbExec($sql, $data);
-        return $this->id = $db->getId();
+        $this->id = $db->getId();
     }
 
     public function update()

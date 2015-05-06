@@ -1,8 +1,6 @@
 <?php
 
 
-namespace App\Classes;
-
 class View
     implements Countable
 {
