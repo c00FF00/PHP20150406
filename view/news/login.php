@@ -13,7 +13,7 @@
 
 <body>
 
-<form class="form-horizontal" action="/index.php?cntrl=admin&act=auth" method="post">
+<form class="form-horizontal" action="/index.php?cntrl=user&act=auth" method="post">
     <div class="form-group">
 
         <div class="col-sm-10">
@@ -30,7 +30,7 @@
         <div class="col-sm-offset-2 col-sm-10">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox"> Запомнить меня
+                    <input type="checkbox" name="rememberme" value="remember"> Запомнить меня
                 </label>
             </div>
         </div>

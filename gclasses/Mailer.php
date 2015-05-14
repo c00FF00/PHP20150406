@@ -1,10 +1,9 @@
 <?php
 
-//include __DIR__ . '/../vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
+namespace gclasses;
 
-class Mailer extends PHPMailer
+class Mailer extends \PHPMailer
 {
-
     public function _construct()
     {
         $this->isSMTP();

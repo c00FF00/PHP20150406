@@ -1,4 +1,4 @@
-<?php session_start(); session_unset(); ?><!DOCTYPE html>
+<?php session_start(); ?><!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
@@ -16,6 +16,20 @@
 <div class="wrapper">
     <header class="header">
         <div class="page-header">
+            <form class="form-inline" action="/index.php?cntrl=user&act=auth" method="post">
+                <div class="form-group">
+                    <input type="email" class="form-control" name="login" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-default">Sign in</button>
+            </form>
             <h1><strong>Новостной сайт</strong>
                 <small>и не только</small>
             </h1>

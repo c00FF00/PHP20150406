@@ -1,6 +1,7 @@
 <?php
+namespace gclasses;
 
-class E404Exception extends Exception
+class E404Exception extends \Exception
 {
     public $msg = '404. Не найдено.';
 

@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace model;
 
-class News extends \Model
+use gclasses\Model;
+
+class News extends Model
 {
     protected static $table = 'main';
 

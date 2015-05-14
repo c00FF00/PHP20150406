@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Controllers;
+namespace controllers;
 
-use App\Classes\E404Exception;
-use App\Models\News as Model;
+use gclasses\View;
+use model\News as Model;
 
-class News extends \AbstractController
+class News extends Controller
 {
     protected $option = 'ORDER BY date DESC LIMIT 0, 20';
 
     public function __construct()
     {
-        $this->view = new \View('news');
+        $this->view = new View('news');
     }
 
     public function actionAll()
@@ -26,12 +26,6 @@ class News extends \AbstractController
         $this->view->display('readnews');
     }
 
-    public function action404()
-    {
-        $except = new E404Exception();
-        $this->view->result = $except->message();
-        $this->view->display('error');
-    }
 
     protected function getTemlatePath()
     {

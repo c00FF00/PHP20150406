@@ -1,26 +1,29 @@
 <?php
 
+namespace model;
 
-class Users extends Model {
+use gclasses\E403Exception;
+use gclasses\Model;
 
-   public static $table = 'users';
+class Users extends Model
+{
+
+    public static $table = 'users';
 
     public $login;
     public $role;
     public $passw;
 
-    public function Auth()
+    public static function Check($login, $passw)
     {
-        $res = $this->findUser($this->login)[0];
-        var_dump($res);
-        foreach ($res as $r) {}
-        echo $res->role;
-        die;
-    }
-
-    public function Authv()
-    {
-
+        $user = static::findUser($login)[0];
+        if ($user->passw == $passw) {
+            $_SESSION['role'] = $user->role;
+            var_dump($_SESSION);
+            return $user->role;
+        } else {
+            throw new E403Exception();
+        }
 
     }
 

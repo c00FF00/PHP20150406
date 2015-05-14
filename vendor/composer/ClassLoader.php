@@ -19,7 +19,7 @@ namespace Composer\Autoload;
  *
  *     $loader = new \Composer\Autoload\ClassLoader();
  *
- *     // register classes with namespaces
+ *     // register gclasses with namespaces
  *     $loader->add('Symfony\Component', __DIR__.'/component');
  *     $loader->add('Symfony',           __DIR__.'/framework');
  *
@@ -230,6 +230,17 @@ class ClassLoader
     }
 
     /**
+     * Can be used to check if the autoloader uses the include path to check
+     * for gclasses.
+     *
+     * @return bool
+     */
+    public function getUseIncludePath()
+    {
+        return $this->useIncludePath;
+    }
+
+    /**
      * Turns on searching the include path for class files.
      *
      * @param bool $useIncludePath
@@ -240,28 +251,6 @@ class ClassLoader
     }
 
     /**
-     * Can be used to check if the autoloader uses the include path to check
-     * for classes.
-     *
-     * @return bool
-     */
-    public function getUseIncludePath()
-    {
-        return $this->useIncludePath;
-    }
-
-    /**
-     * Turns off searching the prefix and fallback directories for classes
-     * that have not been registered with the class map.
-     *
-     * @param bool $classMapAuthoritative
-     */
-    public function setClassMapAuthoritative($classMapAuthoritative)
-    {
-        $this->classMapAuthoritative = $classMapAuthoritative;
-    }
-
-    /**
      * Should class lookup fail if not found in the current class map?
      *
      * @return bool
@@ -269,6 +258,17 @@ class ClassLoader
     public function isClassMapAuthoritative()
     {
         return $this->classMapAuthoritative;
+    }
+
+    /**
+     * Turns off searching the prefix and fallback directories for gclasses
+     * that have not been registered with the class map.
+     *
+     * @param bool $classMapAuthoritative
+     */
+    public function setClassMapAuthoritative($classMapAuthoritative)
+    {
+        $this->classMapAuthoritative = $classMapAuthoritative;
     }
 
     /**

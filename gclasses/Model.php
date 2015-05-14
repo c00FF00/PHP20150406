@@ -1,16 +1,12 @@
 <?php
 
+namespace gclasses;
+
 abstract class Model
 {
-
     protected static $table;
 
     public $id;
-
-    public static function getTable()
-    {
-        return static::$table;
-    }
 
     public static function findAll($ext = null)
     {
@@ -18,6 +14,11 @@ abstract class Model
         $sql = 'SELECT * FROM ' . static::getTable() . ' ' . $ext;
         $db = new Db();
         return $db->findAll($class, $sql);
+    }
+
+    public static function getTable()
+    {
+        return static::$table;
     }
 
     public static function findOne($id)
@@ -38,14 +39,8 @@ abstract class Model
         $class = static::class;
         $sql = 'SELECT * FROM ' . static::getTable() . ' WHERE login=:login ';
         $db = new Db();
-        $res = $db->findOne($class, $sql, [':login' => $login]);
-        if ($res) {
-            return $res;
-        } else {
-            throw new E404Exception();
-        }
+        return $db->findOne($class, $sql, [':login' => $login]);
     }
-
 
     public static function delete($id)
     {
@@ -54,21 +49,13 @@ abstract class Model
         $db->dbExec($sql, [':id' => $id]);
     }
 
-    public function insert()
+    public function save()
     {
-        $properties = get_object_vars($this);
-        unset($properties['id']);
-        $columns = array_keys($properties);
-        $places = [];
-        $data = [];
-        foreach ($columns as $property) {
-            $places[] = ':' . $property;
-            $data[':' . $property] = $this->$property;
+        if (isset($this->id)) {
+            $this->update();
+        } else {
+            $this->insert();
         }
-        $sql = 'INSERT INTO ' . static::getTable() . '(' . implode(', ', $columns) . ') VALUES (' . implode(', ', $places) . ')';
-        $db = new Db();
-        $db->dbExec($sql, $data);
-        $this->id = $db->getId();
     }
 
     public function update()
@@ -89,12 +76,20 @@ abstract class Model
         $db->dbExec($sql, $data);
     }
 
-    public function save()
+    public function insert()
     {
-        if (isset($this->id)) {
-            $this->update();
-        } else {
-            $this->insert();
+        $properties = get_object_vars($this);
+        unset($properties['id']);
+        $columns = array_keys($properties);
+        $places = [];
+        $data = [];
+        foreach ($columns as $property) {
+            $places[] = ':' . $property;
+            $data[':' . $property] = $this->$property;
         }
+        $sql = 'INSERT INTO ' . static::getTable() . '(' . implode(', ', $columns) . ') VALUES (' . implode(', ', $places) . ')';
+        $db = new Db();
+        $db->dbExec($sql, $data);
+        $this->id = $db->getId();
     }
 }
