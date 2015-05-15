@@ -11,27 +11,28 @@ class Err
 {
     protected function getTemlatePath()
     {
-        return __DIR__ . '/../view/news/';
+        //return __DIR__ . '/../view/news/';
+        return __DIR__ . '/../templates';
     }
 
     public function __construct()
     {
-        $this->view = new View('news');
+        $loader = new \Twig_Loader_Filesystem($this->getTemlatePath());
+        $twig = new \Twig_Environment($loader);
+        $this->view = $twig->loadTemplate('error.php');
     }
 
 
     public function action404()
     {
         $except = new E404Exception();
-        $this->view->result = $except->message();
-        $this->view->display('error');
+        echo $this->view->render(['message' => $except->message(), 'rrr' => '4']);
     }
 
     public function action403()
     {
         $except = new E403Exception();
-        $this->view->result = $except->message();
-        $this->view->display('error');
+        echo $this->view->render(['message' => $except->message()]);
     }
 
 }
