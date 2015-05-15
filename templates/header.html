@@ -1,0 +1,31 @@
+<header class="header">
+    <div class="page-header">
+        <form class="form-inline" action="/index.php?cntrl=user&act=auth" method="post">
+            <div class="form-group">
+                <input type="email" class="form-control" name="login" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> Remember me
+                </label>
+            </div>
+            <button type="submit" class="btn btn-default">Sign in</button>
+        </form>
+        <h1><strong>Новостной сайт</strong>
+            <small>и не только</small>
+        </h1>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <ul class="nav nav-pills">
+                <li role="presentation" class="active"><a>Главная</a></li>
+                <li role="presentation"><a href="/index.php?cntrl=admin&act=add">Добавить новость</a></li>
+                <li role="presentation"><a href="/index.php?cntrl=admin&act=exit">Выйти из админ режима</a></li>
+            </ul>
+        </div>
+    </div>
+
+</header>
